@@ -7,21 +7,21 @@ const slides = [
     category: "Business Automation",
     title: "업무 자동화로 생산성 300% 향상",
     description: "반복적인 업무를 AI 워크플로우로 자동화하여 팀원들이 더 창의적인 일에 집중할 수 있는 환경을 구축한 성공 사례입니다.",
-    image: "/src/assets/images/business_automation_team_1784881064214.jpg",
+    image: "/assets/images/business_automation_team_1784881064214.jpg",
     cta: "솔루션 자세히 보기"
   },
   {
     category: "AI Education",
     title: "현장 중심의 AI 리터러시 교육",
     description: "학교 정규 커리큘럼부터 기업 맞춤형 출강까지, 실무 데이터를 활용한 살아있는 교육으로 AI 활용 역량을 극대화합니다.",
-    image: "/src/assets/images/ai_education_classroom_1784881085253.jpg",
+    image: "/assets/images/ai_education_classroom_1784881085253.jpg",
     cta: "교육 프로그램 보기"
   },
   {
     category: "Startup Building",
     title: "아이디어에서 실전 MVP 빌딩까지",
     description: "기획에만 머물러 있던 아이디어를 48시간 이내에 실질적인 결과물로 구현하여 시장의 반응을 확인하고 성장 동력을 확보합니다.",
-    image: "/src/assets/images/mvp_building_hackathon_1784881100542.jpg",
+    image: "/assets/images/mvp_building_hackathon_1784881100542.jpg",
     cta: "빌딩 가이드 보기"
   }
 ];

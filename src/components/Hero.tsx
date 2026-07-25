@@ -35,7 +35,7 @@ export default function Hero() {
         >
           <div className="relative rounded-3xl overflow-hidden shadow-2xl">
             <img 
-              src="/src/assets/images/office_collaboration_1784873599989.jpg" 
+              src="/assets/images/office_collaboration_1784873599989.jpg" 
               alt="Team collaborating in office" 
               className="w-full h-auto"
               referrerPolicy="no-referrer"

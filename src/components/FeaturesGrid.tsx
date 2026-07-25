@@ -18,7 +18,7 @@ export default function FeaturesGrid() {
     {
       title: "데이터 인텔리전스",
       description: "흩어진 데이터를 분석하여 비즈니스 의사결정에 필요한 핵심 인사이트를 추출합니다.",
-      image: "/src/assets/images/data_intelligence_dashboard_1784878091258.jpg",
+      image: "/assets/images/data_intelligence_dashboard_1784878091258.jpg",
       cta: "분석 상담"
     },
     {
