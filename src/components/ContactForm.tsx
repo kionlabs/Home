@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { supabase } from '../lib/supabase';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
-    phone: '',
+    contact: '',
     organization: '',
     interest: '',
     message: '',
@@ -27,10 +28,21 @@ export default function ContactForm() {
     }
     setStatus('submitting');
     try {
-      // 실제 폼 전송 로직이 들어갈 곳입니다.
-      await new Promise(res => setTimeout(res, 1500));
+      const { error } = await supabase
+        .from('consultations')
+        .insert([{ 
+          name: formData.name, 
+          contact: formData.contact, 
+          organization: formData.organization, 
+          interest: formData.interest, 
+          message: formData.message 
+        }]);
+      
+      if (error) throw error;
+      
       setStatus('success');
-    } catch (_) {
+    } catch (error) {
+      console.error('Error submitting form:', error);
       setStatus('idle');
       alert('전송에 실패했습니다. 다시 시도해 주세요.');
     }
@@ -68,9 +80,9 @@ export default function ContactForm() {
             <label className="block text-sm font-medium text-gray-700 mb-1">연락처</label>
             <input
               type="tel"
-              name="phone"
+              name="contact"
               placeholder="연락처"
-              value={formData.phone}
+              value={formData.contact}
               onChange={handleChange}
               required
               className="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#FF8D70] transition-shadow"
