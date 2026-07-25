@@ -33,14 +33,14 @@ export default function BenefitsSection() {
             <div className="flex gap-4 items-center">
               <div className="w-1/2 -translate-y-6">
                 <img 
-                  src="/src/assets/images/education_workshop_kion_1784879916834.jpg" 
+                  src="/assets/images/ai_education_classroom_1784881085253.jpg" 
                   alt="Education" 
                   className="rounded-2xl shadow-xl w-full h-80 object-cover"
                 />
               </div>
               <div className="w-1/2 translate-y-6">
                 <img 
-                  src="/src/assets/images/online_lecture_kion_1784880199548.jpg" 
+                  src="/assets/images/data_intelligence_dashboard_1784878091258.jpg" 
                   alt="Online Lecture" 
                   className="rounded-2xl shadow-xl w-full h-80 object-cover border-4 border-white"
                 />
@@ -55,7 +55,7 @@ export default function BenefitsSection() {
             <div className="relative w-full max-w-md">
               <div className="rounded-[3rem] overflow-hidden shadow-2xl relative">
                 <img 
-                  src="/src/assets/images/startup_building_kion_3_1784879947132.jpg" 
+                  src="/assets/images/mvp_building_hackathon_1784881100542.jpg" 
                   alt="Startup" 
                   className="w-full h-[450px] object-cover"
                 />
