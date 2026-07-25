@@ -48,7 +48,7 @@ export default function ContactForm() {
   }
 
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="pt-32 pb-48 bg-gray-50">
       <div className="max-w-xl mx-auto p-8 bg-white rounded-2xl shadow-lg border border-gray-100">
         <h2 className="text-3xl font-bold text-brand-primary mb-8 text-center">맞춤형 AI 가이드 신청하기</h2>
         <form onSubmit={handleSubmit} className="space-y-5">
@@ -140,7 +140,7 @@ export default function ContactForm() {
                 </svg>
                 제출 중...
               </>
-            ) : '지금 바로 가이드 신청하기'}
+            ) : '제출하기'}
           </button>
         </form>
       </div>

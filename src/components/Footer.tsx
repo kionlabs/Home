@@ -10,7 +10,7 @@ export default function Footer() {
             Work easy.<br/>Grow further with KION.
           </h2>
           <button className="bg-brand-accent text-white px-10 py-4 rounded-full text-lg font-bold hover:opacity-90 transition-all">
-            무료 상담 시작하기
+            지금 바로 가이드 신청하기
           </button>
         </div>
 
