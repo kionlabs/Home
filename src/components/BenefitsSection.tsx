@@ -40,7 +40,7 @@ export default function BenefitsSection() {
               </div>
               <div className="w-1/2 translate-y-6">
                 <img 
-                  src="/assets/images/data_intelligence_dashboard_1784878091258.jpg" 
+                  src="/assets/images/online_lecture_kion_1784880199548.jpg" 
                   alt="Online Lecture" 
                   className="rounded-2xl shadow-xl w-full h-80 object-cover border-4 border-white"
                 />
