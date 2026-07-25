@@ -50,9 +50,10 @@ export default function ContactForm() {
   return (
     <section className="py-24 bg-gray-50">
       <div className="max-w-xl mx-auto p-8 bg-white rounded-2xl shadow-lg border border-gray-100">
-        <h2 className="text-3xl font-bold text-brand-primary mb-8 text-center">상담 신청</h2>
+        <h2 className="text-3xl font-bold text-brand-primary mb-8 text-center">맞춤형 AI 가이드 신청하기</h2>
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">이름</label>
             <input
               type="text"
               name="name"
@@ -64,6 +65,7 @@ export default function ContactForm() {
             />
           </div>
           <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">연락처</label>
             <input
               type="tel"
               name="phone"
@@ -75,16 +77,18 @@ export default function ContactForm() {
             />
           </div>
           <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">소속 (회사/학교/개인)</label>
             <input
               type="text"
               name="organization"
-              placeholder="소속 기관/회사명"
+              placeholder="회사명, 학교명 혹은 '개인'이라 입력해주세요."
               value={formData.organization}
               onChange={handleChange}
               className="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#FF8D70] transition-shadow"
             />
           </div>
           <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">관심 분야</label>
             <select
               name="interest"
               value={formData.interest}
@@ -100,16 +104,17 @@ export default function ContactForm() {
             </select>
           </div>
           <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">문의 내용</label>
             <textarea
               name="message"
-              placeholder="문의 내용"
+              placeholder="상담하고 싶은 내용을 자유롭게 적어주세요. (예: 자동화 툴 제작, 학교 출강 요청, 공모전 기술 검증, 1:1 코칭 등)"
               rows={4}
               value={formData.message}
               onChange={handleChange}
               className="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#FF8D70] transition-shadow resize-none"
             />
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center pt-2">
             <label className="flex items-center space-x-3 cursor-pointer">
               <input
                 type="checkbox"
@@ -124,7 +129,7 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={status === 'submitting'}
-            className="w-full bg-[#FF8D70] text-white font-bold py-3 px-6 rounded-xl hover:bg-[#ff7b5c] transition-all disabled:opacity-70 shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+            className="w-full bg-[#FF8D70] text-white font-bold py-3 px-6 rounded-xl hover:bg-[#ff7b5c] transition-all disabled:opacity-70 shadow-md hover:shadow-lg flex items-center justify-center gap-2 mt-4"
           >
             {status === 'submitting' ? (
               <>
@@ -134,7 +139,7 @@ export default function ContactForm() {
                 </svg>
                 제출 중...
               </>
-            ) : '상담 신청하기'}
+            ) : '지금 바로 가이드 신청하기'}
           </button>
         </form>
       </div>
