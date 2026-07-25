@@ -11,6 +11,7 @@ import BenefitsSection from './components/BenefitsSection';
 import Testimonial from './components/Testimonial';
 import Steps from './components/Steps';
 import Footer from './components/Footer';
+import ContactForm from './components/ContactForm';
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
         <BenefitsSection />
         <Testimonial />
         <Steps />
+        <ContactForm />
       </main>
       <Footer />
     </div>
