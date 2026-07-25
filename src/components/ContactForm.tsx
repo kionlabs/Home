@@ -96,11 +96,12 @@ export default function ContactForm() {
               required
               className="w-full border border-gray-200 rounded-lg px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-[#FF8D70] transition-shadow"
             >
-              <option value="" disabled>관심 분야 선택</option>
-              <option value="AI 교육">AI 교육</option>
-              <option value="자동화 개발">자동화 개발</option>
-              <option value="데이터 분석">데이터 분석</option>
-              <option value="MVP 빌딩">MVP 빌딩</option>
+              <option value="" disabled>관심 있는 분야를 선택해주세요</option>
+              <option value="AI 리터러시 & 실무 교육 (학교/기업/개인)">AI 리터러시 & 실무 교육 (학교/기업/개인)</option>
+              <option value="비즈니스 자동화 솔루션 및 개발">비즈니스 자동화 솔루션 및 개발</option>
+              <option value="데이터 분석 및 인사이트 도출">데이터 분석 및 인사이트 도출</option>
+              <option value="실전 MVP 제작 및 공모전 기획">실전 MVP 제작 및 공모전 기획</option>
+              <option value="기타 문의">기타 문의</option>
             </select>
           </div>
           <div>
