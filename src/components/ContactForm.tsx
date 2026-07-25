@@ -2,28 +2,58 @@ import React, { useState } from 'react';
 import { supabase } from '../lib/supabase';
 
 export default function ContactForm() {
-  const [formData, setFormData] = useState({
+  // Helper to sanitize contact input (allow digits and hyphens)
+  const sanitizeContact = (value: string) => value.replace(/[^\d-]/g, '');
+  // Optional auto-formatting to XXX-XXXX-XXXX (Korean style)
+  const formatContact = (value: string) => {
+    const digits = value.replace(/\D/g, '');
+    if (digits.length <= 3) return digits;
+    if (digits.length <= 7) return `${digits.slice(0,3)}-${digits.slice(3)}`;
+    return `${digits.slice(0,3)}-${digits.slice(3,7)}-${digits.slice(7,11)}`;
+  };
+  const initialForm = {
     name: '',
     contact: '',
     organization: '',
     interest: '',
     message: '',
     consent: false,
-  });
+  };
+  const [formData, setFormData] = useState(initialForm);
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value, type, checked } = e.target as HTMLInputElement;
+    let newValue = value;
+    if (name === 'contact') {
+      // Remove disallowed characters, keep digits and hyphens
+      const sanitized = sanitizeContact(newValue);
+      // Auto‑format to XXX‑XXXX‑XXXX style while typing
+      newValue = formatContact(sanitized);
+    }
     setFormData(prev => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: type === 'checkbox' ? checked : newValue,
     }));
   };
+
+  const isNameValid = formData.name.trim().length >= 2;
+  const cleanedContact = formData.contact.replace(/\D/g, '');
+  const isContactValid = cleanedContact.length === 10 || cleanedContact.length === 11;
+  
+  // To avoid early error messages, only show error when not valid and is not empty
+  const nameError = formData.name && !isNameValid;
+  const contactError = formData.contact && !isContactValid;
+
+  const isFormValid = isNameValid && isContactValid && formData.consent;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.consent) {
       alert('개인정보 동의를 체크해 주세요.');
+      return;
+    }
+    if (!isFormValid) {
       return;
     }
     setStatus('submitting');
@@ -32,7 +62,7 @@ export default function ContactForm() {
         .from('consultations')
         .insert([{ 
           name: formData.name, 
-          contact: formData.contact, 
+          contact: cleanedContact, 
           organization: formData.organization, 
           interest: formData.interest, 
           message: formData.message 
@@ -48,12 +78,23 @@ export default function ContactForm() {
     }
   };
 
+  const handleReset = () => {
+    setFormData(initialForm);
+    setStatus('idle');
+  };
+
   if (status === 'success') {
     return (
       <section className="py-24 bg-gray-50">
-        <div className="max-w-xl mx-auto p-8 bg-white rounded-2xl shadow-lg text-center border border-gray-100">
+        <div className="max-w-xl mx-auto p-8 bg-white rounded-2xl shadow-lg text-center border border-gray-100 flex flex-col items-center">
           <h2 className="text-2xl font-bold text-brand-primary mb-4">상담 신청이 완료되었습니다.</h2>
-          <p className="text-gray-600">빠른 시일 내에 연락드리겠습니다.</p>
+          <p className="text-gray-600 mb-6">빠른 시일 내에 연락드리겠습니다.</p>
+          <button
+            onClick={handleReset}
+            className="bg-[#FF8D70] text-white font-bold py-2 px-6 rounded-xl hover:bg-[#ff7b5c] transition-all shadow-md hover:shadow-lg"
+          >
+            확인 및 다시 작성
+          </button>
         </div>
       </section>
     );
@@ -73,8 +114,9 @@ export default function ContactForm() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#FF8D70] transition-shadow"
+              className={`w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#FF8D70] transition-shadow ${nameError ? 'border-red-500' : 'border-gray-200'}`}
             />
+            {nameError && <p className="mt-1 text-sm text-red-500">이름은 최소 2글자 이상 입력해주세요.</p>}
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">연락처</label>
@@ -85,8 +127,9 @@ export default function ContactForm() {
               value={formData.contact}
               onChange={handleChange}
               required
-              className="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#FF8D70] transition-shadow"
+              className={`w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#FF8D70] transition-shadow ${contactError ? 'border-red-500' : 'border-gray-200'}`}
             />
+            {contactError && <p className="mt-1 text-sm text-red-500">연락처는 숫자와 - 만 허용하며 10~11자리여야 합니다.</p>}
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">소속 (회사/학교/개인)</label>
@@ -141,8 +184,10 @@ export default function ContactForm() {
           </div>
           <button
             type="submit"
-            disabled={status === 'submitting'}
-            className="w-full bg-[#FF8D70] text-white font-bold py-3 px-6 rounded-xl hover:bg-[#ff7b5c] transition-all disabled:opacity-70 shadow-md hover:shadow-lg flex items-center justify-center gap-2 mt-4"
+            disabled={status === 'submitting' || !isFormValid}
+            className={`w-full text-white font-bold py-3 px-6 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 mt-4 ${
+              status === 'submitting' || !isFormValid ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#FF8D70] hover:bg-[#ff7b5c] hover:shadow-lg'
+            }`}
           >
             {status === 'submitting' ? (
               <>
@@ -159,3 +204,4 @@ export default function ContactForm() {
     </section>
   );
 }
+
