@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 
 export default function Hero() {
   return (
@@ -18,12 +19,14 @@ export default function Hero() {
             조직의 생산성을 극대화하고 미래 경쟁력을 확보하세요.
           </p>
           <div className="flex flex-wrap gap-4">
-            <button className="bg-brand-accent hover:opacity-90 text-white px-8 py-4 rounded-full text-lg font-bold transition-all shadow-lg shadow-brand-accent/20">
+            <button className="bg-brand-accent hover:bg-brand-accent/80 hover:opacity-90 cursor-pointer transition-colors text-white px-8 py-4 rounded-full text-lg font-bold shadow-lg shadow-brand-accent/20 hover:brightness-110">
               무료 상담 신청하기
             </button>
-            <button className="bg-white border border-brand-base/20 hover:border-brand-base/40 text-brand-primary px-8 py-4 rounded-full text-lg font-bold transition-all">
-              서비스 가이드
-            </button>
+            <Link to="/guide">
+              <button className="bg-white border border-brand-base/20 hover:border-brand-base/40 cursor-pointer text-brand-primary px-8 py-4 rounded-full text-lg font-bold transition-all">
+                서비스 가이드
+              </button>
+            </Link>
           </div>
         </motion.div>
 

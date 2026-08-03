@@ -42,7 +42,7 @@ export default function Navbar() {
                 onMouseEnter={() => setActiveDropdown(menu.title)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <button className="flex items-center gap-1 text-sm font-bold text-brand-primary hover:text-brand-accent transition-colors py-2">
+                
                   {menu.title}
                   {menu.items && <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === menu.title ? 'rotate-180' : ''}`} />}
                 </button>

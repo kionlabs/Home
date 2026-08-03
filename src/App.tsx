@@ -2,31 +2,39 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
  */
+import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import Home from './pages/Home';
+import Guide from './pages/Guide';
 
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import LogoStrip from './components/LogoStrip';
-import FeaturesGrid from './components/FeaturesGrid';
-import BenefitsSection from './components/BenefitsSection';
-import Testimonial from './components/Testimonial';
-import Steps from './components/Steps';
-import Footer from './components/Footer';
-import ContactForm from './components/ContactForm';
+// ScrollToHash component to handle scrolling when navigating with a hash
+function ScrollToHash() {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      setTimeout(() => {
+        const element = document.getElementById(hash.replace('#', ''));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [hash]);
+
+  return null;
+}
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white selection:bg-blue-100 selection:text-blue-900">
-      <Navbar />
-      <main>
-        <Hero />
-        <LogoStrip />
-        <FeaturesGrid />
-        <BenefitsSection />
-        <Testimonial />
-        <Steps />
-        <ContactForm />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <ScrollToHash />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/guide" element={<Guide />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
