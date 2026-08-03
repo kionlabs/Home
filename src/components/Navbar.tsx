@@ -42,9 +42,14 @@ export default function Navbar() {
                 onMouseEnter={() => setActiveDropdown(menu.title)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                
+                <button className="flex items-center gap-1">
                   {menu.title}
-                  {menu.items && <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === menu.title ? 'rotate-180' : ''}`} />}
+                  {menu.items && (
+                    <ChevronDown
+                      size={14}
+                      className={`transition-transform duration-300 ${activeDropdown === menu.title ? "rotate-180" : ""}`}
+                    />
+                  )}
                 </button>
 
                 <AnimatePresence>
