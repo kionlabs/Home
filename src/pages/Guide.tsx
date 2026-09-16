@@ -73,7 +73,7 @@ export default function Guide() {
                   </span>
                 </div>
 
-                <Link to="/#contact" onClick={scrollToContact}>
+                <Link to="/courses/step1">
                   <button className="w-full bg-[#fcf0ec] text-[#e05638] font-bold py-3.5 px-6 rounded-2xl hover:bg-[#fae2db] transition-colors text-center text-sm cursor-pointer">
                     상세 커리큘럼 보기
                   </button>

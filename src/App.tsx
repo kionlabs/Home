@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Guide from './pages/Guide';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
+import CourseStep1 from './pages/CourseStep1';
 
 // ScrollToHash component to handle scrolling when navigating with a hash
 function ScrollToHash() {
@@ -38,6 +39,7 @@ export default function App() {
         <Route path="/guide" element={<Guide />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
+        <Route path="/courses/step1" element={<CourseStep1 />} />
       </Routes>
     </BrowserRouter>
   );
