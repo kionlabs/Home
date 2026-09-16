@@ -86,7 +86,7 @@ export default function Footer() {
           <div>© 2024 KION Labs. All rights reserved.</div>
           <div className="flex gap-8">
             <Link to="/privacy" className="hover:text-white transition-colors">개인정보처리방침</Link>
-            <a href="#" className="hover:text-white transition-colors">이용약관</a>
+            <Link to="/terms" className="hover:text-white transition-colors">이용약관</Link>
           </div>
         </div>
       </div>
