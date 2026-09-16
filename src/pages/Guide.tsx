@@ -258,9 +258,9 @@ export default function Guide() {
                 </span>
               </div>
 
-              <Link to="/#contact" onClick={scrollToContact} className="w-full md:w-auto">
+              <Link to="/guide/support" className="w-full md:w-auto">
                 <button className="w-full md:w-auto bg-[#fcf0ec] text-[#e05638] font-bold py-3 px-6 rounded-2xl hover:bg-[#fae2db] transition-colors text-sm cursor-pointer whitespace-nowrap">
-                  상세 커리큘럼 보기
+                  상세 세션 안내 보기
                 </button>
               </Link>
             </div>
