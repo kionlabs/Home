@@ -48,13 +48,13 @@ export default function Guide() {
             >
               <div>
                 <span className="text-xs font-bold text-[#e05638] tracking-wider uppercase block mb-3">
-                  STEP 01 · 진단과 첫 경험
+                  STEP 01 · 실전 첫걸음
                 </span>
                 <h3 className="text-xl md:text-2xl font-bold text-brand-primary mb-3">
-                  코워크 — AI 실무 입문
+                  KION AI 툴킷 마스터 — 실전 첫걸음
                 </h3>
                 <p className="text-brand-primary/70 text-sm leading-relaxed mb-6">
-                  팀이 지금 무엇을 손으로 하고 있는지 꺼내 놓고, 그 중 하나를 그 자리에서 도구로 만들어 봅니다. "우리 일에도 되는구나"가 붙는 단계입니다.
+                  안티그래비티, 코워크, 코덱스 등 최신 AI 에이전트를 내 업무에 이식합니다. 복잡한 코딩 없이 '내 일에 바로 쓰이는' AI 세팅법을 익힙니다.
                 </p>
               </div>
 
@@ -75,7 +75,7 @@ export default function Guide() {
 
                 <Link to="/#contact" onClick={scrollToContact}>
                   <button className="w-full bg-[#fcf0ec] text-[#e05638] font-bold py-3.5 px-6 rounded-2xl hover:bg-[#fae2db] transition-colors text-center text-sm cursor-pointer">
-                    구성 자세히 보기 & 상담 신청
+                    상세 커리큘럼 보기
                   </button>
                 </Link>
               </div>
@@ -94,10 +94,10 @@ export default function Guide() {
                   STEP 02 · 실무 전환
                 </span>
                 <h3 className="text-xl md:text-2xl font-bold text-brand-primary mb-3">
-                  내 업무에 AI 개발자 앉히기
+                  업무의 자동화 — AI 개발자 앉히기
                 </h3>
                 <p className="text-brand-primary/70 text-sm leading-relaxed mb-6">
-                  각자 자기 업무용 도구를 만들어 업무에 적용합니다. 시연으로 끝나지 않고 실무에 즉시 남아 업무 속도를 획기적으로 높이는 단계입니다.
+                  반복적인 업무를 AI에게 맡기세요. 데이터 분석부터 보고서 작성까지, 24시간 쉬지 않는 나만의 자동화 파이프라인을 구축합니다.
                 </p>
               </div>
 
@@ -118,7 +118,7 @@ export default function Guide() {
 
                 <Link to="/#contact" onClick={scrollToContact}>
                   <button className="w-full bg-[#fcf0ec] text-[#e05638] font-bold py-3.5 px-6 rounded-2xl hover:bg-[#fae2db] transition-colors text-center text-sm cursor-pointer">
-                    구성 자세히 보기 & 상담 신청
+                    상세 커리큘럼 보기
                   </button>
                 </Link>
               </div>
@@ -137,10 +137,10 @@ export default function Guide() {
                   STEP 03 · 자체 구축
                 </span>
                 <h3 className="text-xl md:text-2xl font-bold text-brand-primary mb-3">
-                  내 데이터로 진짜 서비스 만들기
+                  실전 MVP 빌딩 — 진짜 서비스 만들기
                 </h3>
                 <p className="text-brand-primary/70 text-sm leading-relaxed mb-6">
-                  회사의 실제 데이터(메일·캘린더·시트·DB)와 연결합니다. 남이 만들어 준 것을 쓰는 단계에서, 필요한 것을 직접 설계하는 단계로 넘어갑니다.
+                  아이디어로 끝내지 마세요. 시장 반응을 확인할 수 있는 최소 기능 제품(MVP)을 48시간 내에 구현하여 실질적인 비즈니스 성과를 만듭니다.
                 </p>
               </div>
 
@@ -161,7 +161,7 @@ export default function Guide() {
 
                 <Link to="/#contact" onClick={scrollToContact}>
                   <button className="w-full bg-[#fcf0ec] text-[#e05638] font-bold py-3.5 px-6 rounded-2xl hover:bg-[#fae2db] transition-colors text-center text-sm cursor-pointer">
-                    구성 자세히 보기 & 상담 신청
+                    상세 커리큘럼 보기
                   </button>
                 </Link>
               </div>
@@ -180,10 +180,10 @@ export default function Guide() {
                   전 과정 · 풀패키지
                 </span>
                 <h3 className="text-xl md:text-2xl font-bold text-brand-primary mb-3">
-                  KION 빌더 풀패키지 (1~4강)
+                  KION 빌더 풀패키지 — 성장 엔진 런칭
                 </h3>
                 <p className="text-brand-primary/70 text-sm leading-relaxed mb-6">
-                  진단부터 자체 구축까지 한 줄로 이어서 갑니다. 단계마다 끊기지 않아 조직 전체의 속도가 붙습니다.
+                  진단부터 자동화 시스템 구축, 마케팅 전략까지. 팀 전체의 속도를 극대화하는 성장의 전 과정을 함께합니다.
                 </p>
               </div>
 
@@ -204,7 +204,7 @@ export default function Guide() {
 
                 <Link to="/#contact" onClick={scrollToContact}>
                   <button className="w-full bg-[#fcf0ec] text-[#e05638] font-bold py-3.5 px-6 rounded-2xl hover:bg-[#fae2db] transition-colors text-center text-sm cursor-pointer">
-                    구성 자세히 보기 & 상담 신청
+                    상세 커리큘럼 보기
                   </button>
                 </Link>
               </div>
@@ -224,10 +224,10 @@ export default function Guide() {
                 이어서 · 정착 지원
               </span>
               <h3 className="text-xl md:text-2xl font-bold text-brand-primary mb-2">
-                자유실습 — 막힌 부분 같이 풀어보는 시간
+                AI 정착 지원 — 막히는 부분 1:1 밀착 풀이
               </h3>
               <p className="text-brand-primary/70 text-sm leading-relaxed">
-                과정이 끝난 뒤가 진짜입니다. 각자 만들던 것을 들고 와서 막히는 곳을 그 자리에서 풀어냅니다.
+                과정이 끝난 뒤가 진짜 시작입니다. 각자 진행 중인 프로젝트를 가져오세요. KION Labs의 전문가가 실시간으로 해결책을 함께 고민합니다.
               </p>
             </div>
 
@@ -243,7 +243,7 @@ export default function Guide() {
 
               <Link to="/#contact" onClick={scrollToContact} className="w-full md:w-auto">
                 <button className="w-full md:w-auto bg-[#fcf0ec] text-[#e05638] font-bold py-3 px-6 rounded-2xl hover:bg-[#fae2db] transition-colors text-sm cursor-pointer whitespace-nowrap">
-                  자유실습 안내 & 상담 신청
+                  상세 커리큘럼 보기
                 </button>
               </Link>
             </div>
