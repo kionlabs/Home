@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="text-center mb-24">
           <h2 className="text-3xl md:text-5xl font-bold mb-8 text-white leading-tight">
             일은 더 쉽게, 성장은 더 빠르게.<br />
-            KION과 함께 시작하세요.
+            KION Labs와 함께 시작하세요.
           </h2>
           <Link
             to="/#contact"
@@ -28,53 +28,55 @@ export default function Footer() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12 border-t border-white/10 pt-16 mb-16">
           <div className="col-span-2 lg:col-span-2">
-            <div className="text-3xl font-bold mb-6 text-white tracking-tighter">KION</div>
+            <Link to="/" className="text-3xl font-extrabold mb-6 text-white tracking-tighter cursor-pointer hover:opacity-80 transition-opacity inline-block">
+              KION Labs
+            </Link>
             <p className="text-white/60 text-sm mb-8 max-w-xs leading-relaxed">
               AI 리터러시 교육부터 실전 솔루션 구축까지, 
               KION Labs는 당신의 비즈니스 성장을 위한 최고의 파트너입니다.
             </p>
             <div className="flex gap-4">
-              <button className="p-2.5 bg-white/5 rounded-xl hover:bg-white/10 transition-colors border border-white/5"><Twitter size={18} /></button>
-              <button className="p-2.5 bg-white/5 rounded-xl hover:bg-white/10 transition-colors border border-white/5"><Facebook size={18} /></button>
-              <button className="p-2.5 bg-white/5 rounded-xl hover:bg-white/10 transition-colors border border-white/5"><Instagram size={18} /></button>
-              <button className="p-2.5 bg-white/5 rounded-xl hover:bg-white/10 transition-colors border border-white/5"><Linkedin size={18} /></button>
+              <button className="p-2.5 bg-white/5 rounded-xl hover:bg-white/10 transition-colors border border-white/5 cursor-pointer"><Twitter size={18} /></button>
+              <button className="p-2.5 bg-white/5 rounded-xl hover:bg-white/10 transition-colors border border-white/5 cursor-pointer"><Facebook size={18} /></button>
+              <button className="p-2.5 bg-white/5 rounded-xl hover:bg-white/10 transition-colors border border-white/5 cursor-pointer"><Instagram size={18} /></button>
+              <button className="p-2.5 bg-white/5 rounded-xl hover:bg-white/10 transition-colors border border-white/5 cursor-pointer"><Linkedin size={18} /></button>
             </div>
           </div>
 
           <div>
             <h4 className="font-bold mb-6 text-white">[솔루션]</h4>
             <ul className="space-y-4 text-white/60 text-sm">
-              <li><a href="#" className="hover:text-white transition-colors">AI 교육</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">업무 자동화</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">데이터 분석</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">MVP 빌딩</a></li>
+              <li><Link to="/guide" className="hover:text-white transition-colors cursor-pointer">AI 교육</Link></li>
+              <li><Link to="/guide/automation" className="hover:text-white transition-colors cursor-pointer">업무 자동화</Link></li>
+              <li><Link to="/guide" className="hover:text-white transition-colors cursor-pointer">데이터 분석</Link></li>
+              <li><Link to="/guide/mvp" className="hover:text-white transition-colors cursor-pointer">MVP 빌딩</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-bold mb-6 text-white">[프로그램]</h4>
             <ul className="space-y-4 text-white/60 text-sm">
-              <li><a href="#" className="hover:text-white transition-colors">학교/기관 출강</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">1:1 클래스</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">공모전/창업 빌드업</a></li>
+              <li><Link to="/courses/step1" className="hover:text-white transition-colors cursor-pointer">실전 첫걸음</Link></li>
+              <li><Link to="/guide/automation" className="hover:text-white transition-colors cursor-pointer">업무 자동화</Link></li>
+              <li><Link to="/guide/fullpackage" className="hover:text-white transition-colors cursor-pointer">풀패키지</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-bold mb-6 text-white">[회사 소개]</h4>
             <ul className="space-y-4 text-white/60 text-sm">
-              <li><a href="#" className="hover:text-white transition-colors">KION Labs 소개</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">성공 사례</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">파트너십</a></li>
+              <li><Link to="/" className="hover:text-white transition-colors cursor-pointer">KION Labs 소개</Link></li>
+              <li><Link to="/guide" className="hover:text-white transition-colors cursor-pointer">서비스 가이드</Link></li>
+              <li><Link to="/#contact" className="hover:text-white transition-colors cursor-pointer">파트너십</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-bold mb-6 text-white">[문의/지원]</h4>
             <ul className="space-y-4 text-white/60 text-sm">
-              <li><a href="#" className="hover:text-white transition-colors">고객센터</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">상담 문의</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">자주 묻는 질문(FAQ)</a></li>
+              <li><Link to="/guide/support" className="hover:text-white transition-colors cursor-pointer">AI 정착 지원</Link></li>
+              <li><Link to="/#contact" className="hover:text-white transition-colors cursor-pointer">상담 문의</Link></li>
+              <li><Link to="/guide" className="hover:text-white transition-colors cursor-pointer">자주 묻는 질문(FAQ)</Link></li>
             </ul>
           </div>
         </div>
@@ -96,8 +98,8 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10 text-xs text-white/40 gap-6">
           <div>© 2024 KION Labs. All rights reserved.</div>
           <div className="flex gap-8">
-            <Link to="/privacy" className="hover:text-white transition-colors">개인정보처리방침</Link>
-            <Link to="/terms" className="hover:text-white transition-colors">이용약관</Link>
+            <Link to="/privacy" className="hover:text-white transition-colors cursor-pointer">개인정보처리방침</Link>
+            <Link to="/terms" className="hover:text-white transition-colors cursor-pointer">이용약관</Link>
           </div>
         </div>
       </div>

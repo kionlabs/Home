@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ChevronDown, Menu, X, Search, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Link } from 'react-router-dom';
 
 const menuItems = [
   {
@@ -17,7 +18,7 @@ const menuItems = [
   },
   {
     title: "KION Labs",
-    link: "#"
+    link: "/#contact"
   }
 ];
 
@@ -25,14 +26,28 @@ export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const scrollToContact = () => {
+    setTimeout(() => {
+      const element = document.getElementById('contact');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.location.href = '/#contact';
+      }
+    }, 100);
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-brand-bg-soft/90 backdrop-blur-md border-b border-brand-primary/5">
       <div className="max-w-7xl mx-auto px-4 h-16 md:h-20 flex items-center justify-between">
         {/* Logo and Desktop Nav */}
         <div className="flex items-center gap-12">
-          <div className="text-2xl md:text-3xl font-bold tracking-tighter text-brand-primary cursor-pointer">
-            KION
-          </div>
+          <Link 
+            to="/" 
+            className="text-2xl md:text-3xl font-extrabold tracking-tighter text-brand-primary cursor-pointer hover:opacity-80 transition-opacity"
+          >
+            KION Labs
+          </Link>
           
           <div className="hidden lg:flex items-center gap-8">
             {menuItems.map((menu) => (
@@ -42,7 +57,7 @@ export default function Navbar() {
                 onMouseEnter={() => setActiveDropdown(menu.title)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <button className="flex items-center gap-1">
+                <button className="flex items-center gap-1 cursor-pointer font-medium hover:text-brand-accent transition-colors">
                   {menu.title}
                   {menu.items && (
                     <ChevronDown
@@ -61,13 +76,13 @@ export default function Navbar() {
                       className="absolute top-full left-0 w-48 bg-white shadow-2xl rounded-xl py-4 border border-brand-primary/5 mt-1"
                     >
                       {menu.items.map((item) => (
-                        <a 
+                        <Link 
                           key={item} 
-                          href="#" 
-                          className="block px-6 py-2.5 text-sm text-brand-primary/80 hover:text-brand-accent hover:bg-brand-bg-soft transition-all"
+                          to="/guide" 
+                          className="block px-6 py-2.5 text-sm text-brand-primary/80 hover:text-brand-accent hover:bg-brand-bg-soft transition-all cursor-pointer"
                         >
                           {item}
-                        </a>
+                        </Link>
                       ))}
                     </motion.div>
                   )}
@@ -85,14 +100,16 @@ export default function Navbar() {
               <Globe size={16} /> KR
             </div>
           </div>
-          <button className="bg-brand-accent hover:bg-brand-accent/90 text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-brand-accent/20 transition-all hover:scale-105">
-            무료 상담 신청
-          </button>
+          <Link to="/#contact" onClick={scrollToContact}>
+            <button className="bg-brand-accent hover:bg-brand-accent/90 text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-brand-accent/20 transition-all hover:scale-105 cursor-pointer">
+              무료 상담 신청
+            </button>
+          </Link>
         </div>
 
         {/* Mobile Toggle */}
         <button 
-          className="lg:hidden p-2 text-brand-primary"
+          className="lg:hidden p-2 text-brand-primary cursor-pointer"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -117,22 +134,33 @@ export default function Navbar() {
                   {menu.items ? (
                     <div className="grid grid-cols-2 gap-y-3">
                       {menu.items.map((item) => (
-                        <a key={item} href="#" className="text-base font-bold text-brand-primary hover:text-brand-accent">
+                        <Link 
+                          key={item} 
+                          to="/guide" 
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="text-base font-bold text-brand-primary hover:text-brand-accent cursor-pointer"
+                        >
                           {item}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   ) : (
-                    <a href="#" className="block text-lg font-bold text-brand-primary hover:text-brand-accent">
+                    <Link 
+                      to="/#contact" 
+                      onClick={() => { setIsMobileMenuOpen(false); scrollToContact(); }}
+                      className="block text-lg font-bold text-brand-primary hover:text-brand-accent cursor-pointer"
+                    >
                       {menu.title}
-                    </a>
+                    </Link>
                   )}
                 </div>
               ))}
               <div className="pt-6 border-t border-brand-primary/5">
-                <button className="w-full bg-brand-accent text-white py-4 rounded-xl font-bold shadow-lg shadow-brand-accent/20">
-                  무료 상담 신청
-                </button>
+                <Link to="/#contact" onClick={() => { setIsMobileMenuOpen(false); scrollToContact(); }}>
+                  <button className="w-full bg-brand-accent text-white py-4 rounded-xl font-bold shadow-lg shadow-brand-accent/20 cursor-pointer">
+                    무료 상담 신청
+                  </button>
+                </Link>
               </div>
             </div>
           </motion.div>

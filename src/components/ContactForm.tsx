@@ -187,7 +187,7 @@ export default function ContactForm() {
                 className="w-5 h-5 text-[#FF8D70] border-gray-300 rounded focus:ring-[#FF8D70]"
               />
               <span className="text-sm text-gray-600">
-                <a href="/privacy" target="_blank" rel="noreferrer" className="underline hover:text-[#FF8D70]">
+                <a href="/privacy" target="_blank" rel="noreferrer" className="underline hover:text-[#FF8D70] cursor-pointer">
                   개인정보 수집 및 이용
                 </a>
                 에 동의합니다.
@@ -198,7 +198,7 @@ export default function ContactForm() {
             type="submit"
             disabled={status === 'submitting' || !isFormValid}
             className={`w-full text-white font-bold py-3 px-6 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 mt-4 ${
-              status === 'submitting' || !isFormValid ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#FF8D70] hover:bg-[#ff7b5c] hover:shadow-lg'
+              status === 'submitting' || !isFormValid ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#FF8D70] hover:bg-[#ff7b5c] hover:shadow-lg cursor-pointer'
             }`}
           >
             {status === 'submitting' ? (
