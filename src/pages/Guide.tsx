@@ -173,8 +173,12 @@ export default function Guide() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.4 }}
-              className="bg-white rounded-3xl p-8 border border-black/5 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+              className="bg-white rounded-3xl p-8 border-2 border-[#e05638]/50 shadow-md hover:shadow-lg transition-all flex flex-col justify-between relative overflow-hidden"
             >
+              <div className="absolute top-6 right-6 bg-[#e05638] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                PREMIUM ALL-IN-ONE
+              </div>
+
               <div>
                 <span className="text-xs font-bold text-[#e05638] tracking-wider uppercase block mb-3">
                   전 과정 · 풀패키지
@@ -182,15 +186,28 @@ export default function Guide() {
                 <h3 className="text-xl md:text-2xl font-bold text-brand-primary mb-3">
                   KION 빌더 풀패키지 — 성장 엔진 런칭
                 </h3>
-                <p className="text-brand-primary/70 text-sm leading-relaxed mb-6">
-                  진단부터 자동화 시스템 구축, 마케팅 전략까지. 팀 전체의 속도를 극대화하는 성장의 전 과정을 함께합니다.
+                <p className="text-brand-primary/70 text-sm leading-relaxed mb-4">
+                  진단부터 맞춤형 DB, 자동화 파이프라인 구축, 실시간 배포 및 1개월 밀착 케어까지 올인원으로 함께합니다.
                 </p>
+
+                {/* Special Benefits List */}
+                <div className="bg-[#fcf0ec]/50 p-3.5 rounded-2xl border border-[#f7ded7] mb-6 space-y-1.5 text-xs">
+                  <div className="flex items-center gap-1.5 text-[#e05638] font-bold">
+                    <span>👑 1개월 VIP 전담 슬랙/카톡 밀착 케어</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-brand-primary/80">
+                    <span>🎁 자동화 노션 템플릿·계약서·대시보드 스킨 100% 제공</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-brand-primary/80">
+                    <span>🛡️ 전문가 무제한 보안(RLS) & 성능 코드 검수</span>
+                  </div>
+                </div>
               </div>
 
               <div>
                 <div className="mb-4">
                   <div className="flex items-baseline gap-2 mb-1">
-                    <span className="text-2xl md:text-3xl font-extrabold text-[#FF8D70]">
+                    <span className="text-2xl md:text-3xl font-extrabold text-[#e05638]">
                       2,500,000원부터
                     </span>
                     <span className="text-xs text-brand-primary/60 font-medium">
@@ -198,13 +215,13 @@ export default function Guide() {
                     </span>
                   </div>
                   <span className="text-xs text-brand-primary/50 block">
-                    정원 6~16인 (1~4강 / 총 10시간)
+                    정원 1:1 VIP 케어 (1~4강 / 총 10시간 + 1개월 케어)
                   </span>
                 </div>
 
-                <Link to="/#contact" onClick={scrollToContact}>
-                  <button className="w-full bg-[#fcf0ec] text-[#e05638] font-bold py-3.5 px-6 rounded-2xl hover:bg-[#fae2db] transition-colors text-center text-sm cursor-pointer">
-                    상세 커리큘럼 보기
+                <Link to="/guide/fullpackage">
+                  <button className="w-full bg-[#e05638] hover:bg-[#d04628] text-white font-bold py-3.5 px-6 rounded-2xl transition-colors text-center text-sm cursor-pointer shadow-md shadow-[#e05638]/20">
+                    프리미엄 커리큘럼 상세 보기
                   </button>
                 </Link>
               </div>
