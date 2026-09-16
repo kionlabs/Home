@@ -24,7 +24,7 @@ export default function Guide() {
             transition={{ duration: 0.5 }}
           >
             <span className="text-xs font-bold tracking-widest text-[#e05638] uppercase bg-[#fcf0ec] px-4 py-1.5 rounded-full inline-block mb-4 border border-[#f7ded7]">
-              SERVICE GUIDE
+              SERVICE GUIDE & PRICING
             </span>
             <h1 className="text-4xl md:text-5xl font-extrabold mb-6 text-brand-primary tracking-tight">
               실전 AI 커리큘럼 & 서비스 가이드
@@ -61,11 +61,11 @@ export default function Guide() {
               <div>
                 <div className="mb-4">
                   <div className="flex items-baseline gap-2 mb-1">
-                    <span className="text-2xl md:text-3xl font-extrabold text-brand-primary">
-                      상담 후 결정
+                    <span className="text-2xl md:text-3xl font-extrabold text-[#FF8D70]">
+                      490,000원부터
                     </span>
                     <span className="text-xs text-brand-primary/60 font-medium">
-                      1인 기준 · 1회 · 2시간
+                      1인 기준 · 4회 기준
                     </span>
                   </div>
                   <span className="text-xs text-brand-primary/50 block">
@@ -104,15 +104,15 @@ export default function Guide() {
               <div>
                 <div className="mb-4">
                   <div className="flex items-baseline gap-2 mb-1">
-                    <span className="text-2xl md:text-3xl font-extrabold text-brand-primary">
-                      상담 후 결정
+                    <span className="text-2xl md:text-3xl font-extrabold text-[#FF8D70]">
+                      990,000원부터
                     </span>
                     <span className="text-xs text-brand-primary/60 font-medium">
-                      1인 기준 · 1~2강 · 각 2시간
+                      1인 기준 · 상담 후 견적
                     </span>
                   </div>
                   <span className="text-xs text-brand-primary/50 block">
-                    정원 6~16인
+                    정원 6~16인 (1~2강 / 각 2시간)
                   </span>
                 </div>
 
@@ -147,15 +147,15 @@ export default function Guide() {
               <div>
                 <div className="mb-4">
                   <div className="flex items-baseline gap-2 mb-1">
-                    <span className="text-2xl md:text-3xl font-extrabold text-brand-primary">
-                      상담 후 결정
+                    <span className="text-2xl md:text-3xl font-extrabold text-[#FF8D70]">
+                      1,500,000원부터
                     </span>
                     <span className="text-xs text-brand-primary/60 font-medium">
-                      1인 기준 · 3~4강 · 각 3시간
+                      1인 기준 · 상담 후 견적
                     </span>
                   </div>
                   <span className="text-xs text-brand-primary/50 block">
-                    정원 6~16인
+                    정원 6~16인 (3~4강 / 각 3시간)
                   </span>
                 </div>
 
@@ -190,15 +190,15 @@ export default function Guide() {
               <div>
                 <div className="mb-4">
                   <div className="flex items-baseline gap-2 mb-1">
-                    <span className="text-2xl md:text-3xl font-extrabold text-brand-primary">
-                      상담 후 결정
+                    <span className="text-2xl md:text-3xl font-extrabold text-[#FF8D70]">
+                      2,500,000원부터
                     </span>
                     <span className="text-xs text-brand-primary/60 font-medium">
-                      1인 기준 · 1~4강 · 총 10시간
+                      1인 기준 · 전과정
                     </span>
                   </div>
                   <span className="text-xs text-brand-primary/50 block">
-                    정원 6~16인
+                    정원 6~16인 (1~4강 / 총 10시간)
                   </span>
                 </div>
 
@@ -217,7 +217,7 @@ export default function Guide() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.5 }}
-            className="bg-white rounded-3xl p-8 border border-black/5 shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
+            className="bg-white rounded-3xl p-8 border border-black/5 shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-4"
           >
             <div className="max-w-2xl">
               <span className="text-xs font-bold text-[#e05638] tracking-wider uppercase block mb-2">
@@ -231,13 +231,13 @@ export default function Guide() {
               </p>
             </div>
 
-            <div className="w-full md:w-auto flex flex-col md:items-end gap-3 min-w-[200px]">
+            <div className="w-full md:w-auto flex flex-col md:items-end gap-3 min-w-[220px]">
               <div className="text-left md:text-right">
-                <span className="text-2xl md:text-3xl font-extrabold text-brand-primary block">
-                  상담 후 결정
+                <span className="text-2xl md:text-3xl font-extrabold text-[#FF8D70] block">
+                  150,000원
                 </span>
                 <span className="text-xs text-brand-primary/60 font-medium">
-                  1인 기준 · 1회 · 3시간
+                  1인 기준 · 3시간 1회
                 </span>
               </div>
 
@@ -248,6 +248,11 @@ export default function Guide() {
               </Link>
             </div>
           </motion.div>
+
+          {/* Disclaimer Note */}
+          <p className="text-xs text-brand-primary/50 text-center mt-4">
+            ※ 상세 비용은 프로젝트 규모 및 커리큘럼 구성에 따라 조정될 수 있습니다.
+          </p>
         </section>
 
         {/* How We Work */}
