@@ -7,12 +7,23 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4">
         {/* Final CTA */}
         <div className="text-center mb-24">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white">
-            Work easy.<br/>Grow further with KION.
+          <h2 className="text-3xl md:text-5xl font-bold mb-8 text-white leading-tight">
+            일은 더 쉽게, 성장은 더 빠르게.<br />
+            KION과 함께 시작하세요.
           </h2>
-          <button className="bg-brand-accent text-white px-10 py-4 rounded-full text-lg font-bold hover:opacity-90 transition-all">
-            지금 바로 가이드 신청하기
-          </button>
+          <Link
+            to="/#contact"
+            onClick={() => {
+              setTimeout(() => {
+                const element = document.getElementById('contact');
+                if (element) element.scrollIntoView({ behavior: 'smooth' });
+              }, 100);
+            }}
+          >
+            <button className="bg-brand-accent text-white px-10 py-4 rounded-full text-lg font-bold hover:opacity-90 transition-all cursor-pointer shadow-lg shadow-brand-accent/20">
+              지금 바로 가이드 신청하기
+            </button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12 border-t border-white/10 pt-16 mb-16">
