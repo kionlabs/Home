@@ -1,4 +1,5 @@
 import { Twitter, Facebook, Linkedin, Instagram } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -84,7 +85,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10 text-xs text-white/40 gap-6">
           <div>© 2024 KION Labs. All rights reserved.</div>
           <div className="flex gap-8">
-            <a href="#" className="hover:text-white transition-colors">개인정보처리방침</a>
+            <Link to="/privacy" className="hover:text-white transition-colors">개인정보처리방침</Link>
             <a href="#" className="hover:text-white transition-colors">이용약관</a>
           </div>
         </div>

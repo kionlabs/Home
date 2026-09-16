@@ -186,7 +186,12 @@ export default function ContactForm() {
                 onChange={handleChange}
                 className="w-5 h-5 text-[#FF8D70] border-gray-300 rounded focus:ring-[#FF8D70]"
               />
-              <span className="text-sm text-gray-600">개인정보 수집 및 이용에 동의합니다.</span>
+              <span className="text-sm text-gray-600">
+                <a href="/privacy" target="_blank" rel="noreferrer" className="underline hover:text-[#FF8D70]">
+                  개인정보 수집 및 이용
+                </a>
+                에 동의합니다.
+              </span>
             </label>
           </div>
           <button
