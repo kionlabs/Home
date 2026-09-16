@@ -4,126 +4,299 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 export default function Guide() {
+  const scrollToContact = () => {
+    setTimeout(() => {
+      const element = document.getElementById('contact');
+      if (element) element.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  };
+
   return (
-    <div className="min-h-screen bg-brand-bg-soft selection:bg-brand-accent/20 selection:text-brand-primary">
+    <div className="min-h-screen bg-[#f7f5ef] selection:bg-brand-accent/20 selection:text-brand-primary">
       <Navbar />
-      
-      <main className="pt-32 pb-20 max-w-4xl mx-auto px-6 md:px-10 font-sans text-brand-primary">
-        
+
+      <main className="pt-32 pb-24 max-w-5xl mx-auto px-4 md:px-8 font-sans text-brand-primary">
         {/* Intro */}
-        <section className="mb-20">
+        <section className="mb-16 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-brand-primary">
-              서비스 가이드
+            <span className="text-xs font-bold tracking-widest text-[#e05638] uppercase bg-[#fcf0ec] px-4 py-1.5 rounded-full inline-block mb-4 border border-[#f7ded7]">
+              SERVICE GUIDE
+            </span>
+            <h1 className="text-4xl md:text-5xl font-extrabold mb-6 text-brand-primary tracking-tight">
+              실전 AI 커리큘럼 & 서비스 가이드
             </h1>
-            <p className="text-lg md:text-xl text-brand-primary/80 leading-relaxed bg-white p-6 rounded-2xl shadow-sm border border-brand-primary/5">
-              KION Labs는 단순한 이론 교육이 아닌, <span className="font-bold text-brand-accent">'바이브 코딩(Vibe Coding)'</span>과 <span className="font-bold text-brand-base">실전 중심의 문제 해결</span>에 집중합니다.<br/>
-              조직의 체질을 바꾸고 즉각적인 성과를 내기 위해 맞춤형 교육과 솔루션을 제공합니다.
+            <p className="text-lg md:text-xl text-brand-primary/80 max-w-2xl mx-auto leading-relaxed">
+              KION Labs는 단순한 이론 교육을 넘어 <span className="font-bold text-[#e05638]">'바이브 코딩(Vibe Coding)'</span> 기반의 실전 문제 해결 프로그램을 제공합니다.
             </p>
           </motion.div>
         </section>
 
-        {/* Programs */}
-        <section className="mb-20">
-          <motion.h2 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-2xl font-bold mb-6 pb-2 border-b-2 border-brand-primary/10"
-          >
-            Programs
-          </motion.h2>
-          <div className="overflow-x-auto bg-white rounded-2xl shadow-sm border border-brand-primary/5">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="bg-brand-primary/5 text-brand-primary">
-                  <th className="p-4 font-bold border-b border-brand-primary/10">프로그램</th>
-                  <th className="p-4 font-bold border-b border-brand-primary/10">상세 내용</th>
-                  <th className="p-4 font-bold border-b border-brand-primary/10">가격대</th>
-                </tr>
-              </thead>
-              <tbody className="text-brand-primary/80">
-                <tr className="hover:bg-brand-bg-soft transition-colors">
-                  <td className="p-4 border-b border-brand-primary/5 font-bold">1:1 개인 코칭</td>
-                  <td className="p-4 border-b border-brand-primary/5">당신의 아이디어를 실전 결과물로 만드는 밀착 코칭</td>
-                  <td className="p-4 border-b border-brand-primary/5 font-medium whitespace-nowrap">18만원 (4회 기준 / 회당 60분)</td>
-                </tr>
-                <tr className="hover:bg-brand-bg-soft transition-colors">
-                  <td className="p-4 border-b border-brand-primary/5 font-bold">기업/기관 워크숍</td>
-                  <td className="p-4 border-b border-brand-primary/5">조직에 AI를 이식하는 실습형 교육 및 자동화 컨설팅</td>
-                  <td className="p-4 border-b border-brand-primary/5 font-medium whitespace-nowrap">상담 후 결정</td>
-                </tr>
-                <tr className="hover:bg-brand-bg-soft transition-colors">
-                  <td className="p-4 font-bold">실전 MVP 빌딩</td>
-                  <td className="p-4">공모전 수상 및 창업 검증을 위한 쾌속 제품 제작</td>
-                  <td className="p-4 font-medium whitespace-nowrap">상담 후 결정</td>
-                </tr>
-              </tbody>
-            </table>
+        {/* 2x2 Card Grid Programs */}
+        <section className="mb-12">
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
+            {/* Card 1 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="bg-white rounded-3xl p-8 border border-black/5 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+            >
+              <div>
+                <span className="text-xs font-bold text-[#e05638] tracking-wider uppercase block mb-3">
+                  STEP 01 · 진단과 첫 경험
+                </span>
+                <h3 className="text-xl md:text-2xl font-bold text-brand-primary mb-3">
+                  코워크 — AI 실무 입문
+                </h3>
+                <p className="text-brand-primary/70 text-sm leading-relaxed mb-6">
+                  팀이 지금 무엇을 손으로 하고 있는지 꺼내 놓고, 그 중 하나를 그 자리에서 도구로 만들어 봅니다. "우리 일에도 되는구나"가 붙는 단계입니다.
+                </p>
+              </div>
+
+              <div>
+                <div className="mb-4">
+                  <div className="flex items-baseline gap-2 mb-1">
+                    <span className="text-2xl md:text-3xl font-extrabold text-brand-primary">
+                      상담 후 결정
+                    </span>
+                    <span className="text-xs text-brand-primary/60 font-medium">
+                      1인 기준 · 1회 · 2시간
+                    </span>
+                  </div>
+                  <span className="text-xs text-brand-primary/50 block">
+                    정원 최대 16인 (맞춤 세션 가능)
+                  </span>
+                </div>
+
+                <Link to="/#contact" onClick={scrollToContact}>
+                  <button className="w-full bg-[#fcf0ec] text-[#e05638] font-bold py-3.5 px-6 rounded-2xl hover:bg-[#fae2db] transition-colors text-center text-sm cursor-pointer">
+                    구성 자세히 보기 & 상담 신청
+                  </button>
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* Card 2 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              className="bg-white rounded-3xl p-8 border border-black/5 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+            >
+              <div>
+                <span className="text-xs font-bold text-[#e05638] tracking-wider uppercase block mb-3">
+                  STEP 02 · 실무 전환
+                </span>
+                <h3 className="text-xl md:text-2xl font-bold text-brand-primary mb-3">
+                  내 업무에 AI 개발자 앉히기
+                </h3>
+                <p className="text-brand-primary/70 text-sm leading-relaxed mb-6">
+                  각자 자기 업무용 도구를 만들어 업무에 적용합니다. 시연으로 끝나지 않고 실무에 즉시 남아 업무 속도를 획기적으로 높이는 단계입니다.
+                </p>
+              </div>
+
+              <div>
+                <div className="mb-4">
+                  <div className="flex items-baseline gap-2 mb-1">
+                    <span className="text-2xl md:text-3xl font-extrabold text-brand-primary">
+                      상담 후 결정
+                    </span>
+                    <span className="text-xs text-brand-primary/60 font-medium">
+                      1인 기준 · 1~2강 · 각 2시간
+                    </span>
+                  </div>
+                  <span className="text-xs text-brand-primary/50 block">
+                    정원 6~16인
+                  </span>
+                </div>
+
+                <Link to="/#contact" onClick={scrollToContact}>
+                  <button className="w-full bg-[#fcf0ec] text-[#e05638] font-bold py-3.5 px-6 rounded-2xl hover:bg-[#fae2db] transition-colors text-center text-sm cursor-pointer">
+                    구성 자세히 보기 & 상담 신청
+                  </button>
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* Card 3 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+              className="bg-white rounded-3xl p-8 border border-black/5 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+            >
+              <div>
+                <span className="text-xs font-bold text-[#e05638] tracking-wider uppercase block mb-3">
+                  STEP 03 · 자체 구축
+                </span>
+                <h3 className="text-xl md:text-2xl font-bold text-brand-primary mb-3">
+                  내 데이터로 진짜 서비스 만들기
+                </h3>
+                <p className="text-brand-primary/70 text-sm leading-relaxed mb-6">
+                  회사의 실제 데이터(메일·캘린더·시트·DB)와 연결합니다. 남이 만들어 준 것을 쓰는 단계에서, 필요한 것을 직접 설계하는 단계로 넘어갑니다.
+                </p>
+              </div>
+
+              <div>
+                <div className="mb-4">
+                  <div className="flex items-baseline gap-2 mb-1">
+                    <span className="text-2xl md:text-3xl font-extrabold text-brand-primary">
+                      상담 후 결정
+                    </span>
+                    <span className="text-xs text-brand-primary/60 font-medium">
+                      1인 기준 · 3~4강 · 각 3시간
+                    </span>
+                  </div>
+                  <span className="text-xs text-brand-primary/50 block">
+                    정원 6~16인
+                  </span>
+                </div>
+
+                <Link to="/#contact" onClick={scrollToContact}>
+                  <button className="w-full bg-[#fcf0ec] text-[#e05638] font-bold py-3.5 px-6 rounded-2xl hover:bg-[#fae2db] transition-colors text-center text-sm cursor-pointer">
+                    구성 자세히 보기 & 상담 신청
+                  </button>
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* Card 4 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.4 }}
+              className="bg-white rounded-3xl p-8 border border-black/5 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+            >
+              <div>
+                <span className="text-xs font-bold text-[#e05638] tracking-wider uppercase block mb-3">
+                  전 과정 · 풀패키지
+                </span>
+                <h3 className="text-xl md:text-2xl font-bold text-brand-primary mb-3">
+                  KION 빌더 풀패키지 (1~4강)
+                </h3>
+                <p className="text-brand-primary/70 text-sm leading-relaxed mb-6">
+                  진단부터 자체 구축까지 한 줄로 이어서 갑니다. 단계마다 끊기지 않아 조직 전체의 속도가 붙습니다.
+                </p>
+              </div>
+
+              <div>
+                <div className="mb-4">
+                  <div className="flex items-baseline gap-2 mb-1">
+                    <span className="text-2xl md:text-3xl font-extrabold text-brand-primary">
+                      상담 후 결정
+                    </span>
+                    <span className="text-xs text-brand-primary/60 font-medium">
+                      1인 기준 · 1~4강 · 총 10시간
+                    </span>
+                  </div>
+                  <span className="text-xs text-brand-primary/50 block">
+                    정원 6~16인
+                  </span>
+                </div>
+
+                <Link to="/#contact" onClick={scrollToContact}>
+                  <button className="w-full bg-[#fcf0ec] text-[#e05638] font-bold py-3.5 px-6 rounded-2xl hover:bg-[#fae2db] transition-colors text-center text-sm cursor-pointer">
+                    구성 자세히 보기 & 상담 신청
+                  </button>
+                </Link>
+              </div>
+            </motion.div>
           </div>
+
+          {/* Full-width Bottom Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.5 }}
+            className="bg-white rounded-3xl p-8 border border-black/5 shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
+          >
+            <div className="max-w-2xl">
+              <span className="text-xs font-bold text-[#e05638] tracking-wider uppercase block mb-2">
+                이어서 · 정착 지원
+              </span>
+              <h3 className="text-xl md:text-2xl font-bold text-brand-primary mb-2">
+                자유실습 — 막힌 부분 같이 풀어보는 시간
+              </h3>
+              <p className="text-brand-primary/70 text-sm leading-relaxed">
+                과정이 끝난 뒤가 진짜입니다. 각자 만들던 것을 들고 와서 막히는 곳을 그 자리에서 풀어냅니다.
+              </p>
+            </div>
+
+            <div className="w-full md:w-auto flex flex-col md:items-end gap-3 min-w-[200px]">
+              <div className="text-left md:text-right">
+                <span className="text-2xl md:text-3xl font-extrabold text-brand-primary block">
+                  상담 후 결정
+                </span>
+                <span className="text-xs text-brand-primary/60 font-medium">
+                  1인 기준 · 1회 · 3시간
+                </span>
+              </div>
+
+              <Link to="/#contact" onClick={scrollToContact} className="w-full md:w-auto">
+                <button className="w-full md:w-auto bg-[#fcf0ec] text-[#e05638] font-bold py-3 px-6 rounded-2xl hover:bg-[#fae2db] transition-colors text-sm cursor-pointer whitespace-nowrap">
+                  자유실습 안내 & 상담 신청
+                </button>
+              </Link>
+            </div>
+          </motion.div>
         </section>
 
-        {/* How we work */}
-        <section className="mb-20">
-          <motion.h2 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-2xl font-bold mb-6 pb-2 border-b-2 border-brand-primary/10"
-          >
-            How we work
-          </motion.h2>
+        {/* How We Work */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold mb-6 text-brand-primary border-b border-brand-primary/10 pb-3">
+            How We Work (진행 방식)
+          </h2>
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-brand-primary/5">
-              <h3 className="font-bold text-brand-accent mb-3">수업 방식</h3>
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-black/5">
+              <h3 className="font-bold text-[#e05638] mb-2 text-base">수업 방식</h3>
               <p className="text-brand-primary/70 text-sm leading-relaxed">
-                온라인(Zoom/Google Meet) 및 오프라인을 병행하며, 고객의 상황과 목표에 최적화된 하이브리드 방식을 제공합니다.
+                온라인(Zoom/Meet) 및 오프라인 출강을 병행하며, 팀/개인 맞춤형 프로젝트 방식을 제공합니다.
               </p>
             </div>
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-brand-primary/5">
-              <h3 className="font-bold text-brand-base mb-3">협업 도구</h3>
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-black/5">
+              <h3 className="font-bold text-brand-base mb-2 text-base">협업 도구</h3>
               <p className="text-brand-primary/70 text-sm leading-relaxed">
-                Notion, Slack, Github 등을 활용하여 투명하고 효율적으로 프로젝트와 교육 과정을 트래킹합니다.
+                Notion, Slack, Github 등을 활용하여 투명하고 효율적으로 결과물과 수강 관리를 지원합니다.
               </p>
             </div>
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-brand-primary/5">
-              <h3 className="font-bold text-brand-primary mb-3">진행 프로세스</h3>
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-black/5">
+              <h3 className="font-bold text-brand-primary mb-2 text-base">진행 프로세스</h3>
               <p className="text-brand-primary/70 text-sm leading-relaxed">
-                무료 상담 → 니즈 분석 및 제안 → 계약 및 일정 확정 → 밀착 교육/개발 진행 → 결과물 도출 및 피드백
+                무료 상담 → 니즈 분석 및 제안 → 계약/일정 확정 → 맞춤 교육/구축 → 결과물 완성 및 피드백
               </p>
             </div>
           </div>
         </section>
 
         {/* FAQ */}
-        <section className="mb-20">
-          <motion.h2 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-2xl font-bold mb-6 pb-2 border-b-2 border-brand-primary/10"
-          >
-            FAQ
-          </motion.h2>
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold mb-6 text-brand-primary border-b border-brand-primary/10 pb-3">
+            자주 묻는 질문 (FAQ)
+          </h2>
           <div className="space-y-4">
             {[
-              { q: "코딩을 전혀 몰라도 수강할 수 있나요?", a: "네, 가능합니다. 바이브 코딩 접근법을 통해 코딩 지식이 없어도 자연어로 AI와 소통하며 결과물을 만드는 방법을 배울 수 있습니다." },
-              { q: "기업 맞춤형 교육도 가능한가요?", a: "물론입니다. 각 기업의 도메인과 부서별 특성에 맞춘 실습 중심의 AI 워크숍을 설계하여 제공합니다." },
-              { q: "MVP 빌딩은 보통 얼마나 걸리나요?", a: "요구사항의 복잡도에 따라 다르지만, 보통 2주에서 4주 사이에 핵심 기능 검증이 가능한 초기 모델을 완성합니다." },
-              { q: "온라인 코칭은 어떻게 진행되나요?", a: "화면 공유를 통해 수강생이 직접 실습하는 과정을 보며 실시간으로 피드백을 드리는 밀착 코칭으로 진행됩니다." },
-              { q: "상담 후 계약하지 않아도 되나요?", a: "네, 초기 상담은 무료로 진행되며, 니즈를 명확히 파악하고 방향성을 제시해 드리는 과정이므로 부담 없이 신청하셔도 됩니다." }
+              { q: "코딩을 전혀 몰라도 수강할 수 있나요?", a: "네, 가능합니다. 바이브 코딩 접근법을 통해 코딩 지식이 없어도 자연어로 AI와 소통하며 필요한 업무 도구나 서비스를 만들 수 있습니다." },
+              { q: "기업 맞춤형 교육도 가능한가요?", a: "물론입니다. 각 기업의 도메인과 부서별 업무 특성에 맞춰 100% 맞춤형 실습 워크숍과 자동화 솔루션을 제공합니다." },
+              { q: "MVP 제작/자체 서비스 구축은 보통 얼마나 걸리나요?", a: "프로젝트 요구사항에 따라 다르지만, 보통 2주에서 4주 사이에 핵심 기능 검증이 가능한 초기 모델(MVP)을 완성합니다." },
+              { q: "온라인 코칭은 어떻게 진행되나요?", a: "화면 공유를 통해 수강생이 직접 실습하는 과정을 보며 실시간으로 막히는 부분을 짚어주는 밀착 코칭으로 진행됩니다." },
+              { q: "상담 후 계약하지 않아도 되나요?", a: "네, 초기 상담은 무료로 진행되며, 니즈를 명확히 파악하고 적합한 커리큘럼이나 해결책을 탐색하는 단계이므로 부담 없이 신청하셔도 됩니다." }
             ].map((faq, idx) => (
-              <details key={idx} className="group bg-white rounded-2xl shadow-sm border border-brand-primary/5 overflow-hidden">
-                <summary className="font-bold cursor-pointer p-6 hover:bg-brand-bg-soft transition-colors list-none flex justify-between items-center">
+              <details key={idx} className="group bg-white rounded-2xl shadow-sm border border-black/5 overflow-hidden">
+                <summary className="font-bold cursor-pointer p-6 hover:bg-[#fbf9f4] transition-colors list-none flex justify-between items-center text-sm md:text-base">
                   <span>Q. {faq.q}</span>
                   <span className="text-brand-primary/40 group-open:rotate-180 transition-transform">▼</span>
                 </summary>
-                <div className="p-6 pt-0 text-brand-primary/80 border-t border-brand-primary/5 mt-2 bg-brand-bg-soft/30">
-                  <span className="font-bold text-brand-accent mr-2">A.</span>
+                <div className="p-6 pt-0 text-brand-primary/80 border-t border-black/5 mt-2 bg-[#fbf9f4]/50 text-sm leading-relaxed">
+                  <span className="font-bold text-[#e05638] mr-2">A.</span>
                   {faq.a}
                 </div>
               </details>
@@ -132,24 +305,15 @@ export default function Guide() {
         </section>
 
         {/* CTA */}
-        <div className="mt-20 text-center">
-          <Link 
-            to="/#contact"
-            onClick={() => {
-              // Ensure smooth scroll to hash
-              setTimeout(() => {
-                const element = document.getElementById('contact');
-                if(element) element.scrollIntoView({behavior: 'smooth'});
-              }, 100);
-            }}
-          >
-            <button className="bg-brand-accent hover:bg-brand-accent/90 hover:-translate-y-1 transition-all cursor-pointer text-white px-10 py-5 rounded-full text-xl font-bold shadow-xl shadow-brand-accent/20">
-              상담 신청하기
+        <div className="text-center pt-8">
+          <Link to="/#contact" onClick={scrollToContact}>
+            <button className="bg-[#e05638] hover:bg-[#d04628] hover:-translate-y-0.5 transition-all cursor-pointer text-white px-10 py-5 rounded-2xl text-lg font-bold shadow-xl shadow-[#e05638]/20">
+              맞춤형 상담 신청하기
             </button>
           </Link>
         </div>
-
       </main>
+
       <Footer />
     </div>
   );
