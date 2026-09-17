@@ -62,10 +62,10 @@ export default function Guide() {
                 <div className="mb-4">
                   <div className="flex items-baseline gap-2 mb-1">
                     <span className="text-2xl md:text-3xl font-extrabold text-[#FF8D70]">
-                      490,000원
+                      198,000원
                     </span>
                     <span className="text-xs text-brand-primary/60 font-medium">
-                      1인 기준 · 4회 수강
+                      1회 (3시간) 기준
                     </span>
                   </div>
                   <span className="text-xs text-brand-primary/50 block">
@@ -105,14 +105,14 @@ export default function Guide() {
                 <div className="mb-4">
                   <div className="flex items-baseline gap-2 mb-1">
                     <span className="text-2xl md:text-3xl font-extrabold text-[#FF8D70]">
-                      490,000원
+                      350,000원
                     </span>
                     <span className="text-xs text-brand-primary/60 font-medium">
-                      모듈당 (분할 결제 지원)
+                      1회 (3시간) 기준
                     </span>
                   </div>
                   <span className="text-xs text-brand-primary/50 block">
-                    1:1 코칭 또는 그룹 (1~2강)
+                    1:1 코칭 또는 그룹 (최대 6인)
                   </span>
                 </div>
 
@@ -148,14 +148,14 @@ export default function Guide() {
                 <div className="mb-4">
                   <div className="flex items-baseline gap-2 mb-1">
                     <span className="text-2xl md:text-3xl font-extrabold text-[#FF8D70]">
-                      490,000원
+                      450,000원
                     </span>
                     <span className="text-xs text-brand-primary/60 font-medium">
-                      단계별 회차 결제 기준
+                      1회차 기준
                     </span>
                   </div>
                   <span className="text-xs text-brand-primary/50 block">
-                    1:1 전담 구축 코칭 (3~4강)
+                    1:1 전담 구축 코칭 (3~4회차)
                   </span>
                 </div>
 
@@ -208,14 +208,14 @@ export default function Guide() {
                 <div className="mb-4">
                   <div className="flex items-baseline gap-2 mb-1">
                     <span className="text-2xl md:text-3xl font-extrabold text-[#e05638]">
-                      490,000원
+                      450,000원
                     </span>
                     <span className="text-xs text-brand-primary/60 font-medium">
-                      월/회차별 분할 결제 기준
+                      1회차 기준
                     </span>
                   </div>
                   <span className="text-xs text-brand-primary/50 block">
-                    정원 1:1 VIP 케어 (전과정 10시간 + 1개월 케어)
+                    1:1 VIP 전담 케어 (전과정 5회차 + 1개월 케어)
                   </span>
                 </div>
 
@@ -268,7 +268,7 @@ export default function Guide() {
 
           {/* Disclaimer Note */}
           <p className="text-xs text-brand-primary/50 text-center mt-4">
-            ※ 모든 코스는 수강생의 부담을 줄이기 위해 건당 50만원 이하의 모듈/회차별 결제를 기본으로 지원합니다.
+            ※ 모든 코스는 회차별 결제를 기본으로 지원하며, 상세 비용은 프로젝트 규모 및 커리큘럼 구성에 따라 조정될 수 있습니다.
           </p>
         </section>
 
