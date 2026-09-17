@@ -105,10 +105,10 @@ export default function Guide() {
                 <div className="mb-4">
                   <div className="flex items-baseline gap-2 mb-1">
                     <span className="text-2xl md:text-3xl font-extrabold text-[#FF8D70]">
-                      350,000원
+                      388,000원
                     </span>
                     <span className="text-xs text-brand-primary/60 font-medium">
-                      1회 (3시간) 기준
+                      1회 (4시간) 기준
                     </span>
                   </div>
                   <span className="text-xs text-brand-primary/50 block">
@@ -148,7 +148,7 @@ export default function Guide() {
                 <div className="mb-4">
                   <div className="flex items-baseline gap-2 mb-1">
                     <span className="text-2xl md:text-3xl font-extrabold text-[#FF8D70]">
-                      450,000원
+                      468,000원
                     </span>
                     <span className="text-xs text-brand-primary/60 font-medium">
                       1회차 기준
@@ -167,104 +167,49 @@ export default function Guide() {
               </div>
             </motion.div>
 
-            {/* Card 4 */}
+            {/* Card 4 — AI 정착 지원 */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.4 }}
-              className="bg-white rounded-3xl p-8 border-2 border-[#e05638]/50 shadow-md hover:shadow-lg transition-all flex flex-col justify-between relative overflow-hidden"
+              className="bg-white rounded-3xl p-8 border border-black/5 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
             >
-              <div className="absolute top-6 right-6 bg-[#e05638] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
-                PREMIUM ALL-IN-ONE
-              </div>
-
               <div>
                 <span className="text-xs font-bold text-[#e05638] tracking-wider uppercase block mb-3">
-                  전 과정 · 풀패키지
+                  이어서 · 정착 지원
                 </span>
                 <h3 className="text-xl md:text-2xl font-bold text-brand-primary mb-3">
-                  KION 빌더 풀패키지 — 성장 엔진 런칭
+                  AI 정착 지원 — 1:1 밀착 트러블슈팅
                 </h3>
-                <p className="text-brand-primary/70 text-sm leading-relaxed mb-4">
-                  진단부터 맞춤형 DB, 자동화 파이프라인 구축, 실시간 배포 및 1개월 밀착 케어까지 올인원으로 함께합니다.
+                <p className="text-brand-primary/70 text-sm leading-relaxed mb-6">
+                  과정이 끝난 뒤가 진짜 시작입니다. 막히는 오류, 의도대로 안 움직이는 기능 — KION Labs의 전문가와 실시간으로 해결합니다.
                 </p>
-
-                {/* Special Benefits List */}
-                <div className="bg-[#fcf0ec]/50 p-3.5 rounded-2xl border border-[#f7ded7] mb-6 space-y-1.5 text-xs">
-                  <div className="flex items-center gap-1.5 text-[#e05638] font-bold">
-                    <span>👑 1개월 VIP 전담 슬랙/카톡 밀착 케어</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 text-brand-primary/80">
-                    <span>🎁 자동화 노션 템플릿·계약서·대시보드 스킨 100% 제공</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 text-brand-primary/80">
-                    <span>🛡️ 전문가 무제한 보안(RLS) & 성능 코드 검수</span>
-                  </div>
-                </div>
               </div>
 
               <div>
                 <div className="mb-4">
                   <div className="flex items-baseline gap-2 mb-1">
-                    <span className="text-2xl md:text-3xl font-extrabold text-[#e05638]">
-                      450,000원
+                    <span className="text-2xl md:text-3xl font-extrabold text-[#FF8D70]">
+                      150,000원
                     </span>
                     <span className="text-xs text-brand-primary/60 font-medium">
-                      1회차 기준
+                      1회 (2시간) 기준
                     </span>
                   </div>
                   <span className="text-xs text-brand-primary/50 block">
-                    1:1 VIP 전담 케어 (전과정 5회차 + 1개월 케어)
+                    1:1 전담 트러블슈팅 세션
                   </span>
                 </div>
 
-                <Link to="/guide/fullpackage">
-                  <button className="w-full bg-[#e05638] hover:bg-[#d04628] text-white font-bold py-3.5 px-6 rounded-2xl transition-colors text-center text-sm cursor-pointer shadow-md shadow-[#e05638]/20">
-                    프리미엄 커리큘럼 상세 보기
+                <Link to="/guide/support">
+                  <button className="w-full bg-[#fcf0ec] text-[#e05638] font-bold py-3.5 px-6 rounded-2xl hover:bg-[#fae2db] transition-colors text-center text-sm cursor-pointer">
+                    상세 세션 안내 보기
                   </button>
                 </Link>
               </div>
             </motion.div>
           </div>
-
-          {/* Full-width Bottom Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.5 }}
-            className="bg-white rounded-3xl p-8 border border-black/5 shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-4"
-          >
-            <div className="max-w-2xl">
-              <span className="text-xs font-bold text-[#e05638] tracking-wider uppercase block mb-2">
-                이어서 · 정착 지원
-              </span>
-              <h3 className="text-xl md:text-2xl font-bold text-brand-primary mb-2">
-                AI 정착 지원 — 막히는 부분 1:1 밀착 풀이
-              </h3>
-              <p className="text-brand-primary/70 text-sm leading-relaxed">
-                과정이 끝난 뒤가 진짜 시작입니다. 각자 진행 중인 프로젝트를 가져오세요. KION Labs의 전문가가 실시간으로 해결책을 함께 고민합니다.
-              </p>
-            </div>
-
-            <div className="w-full md:w-auto flex flex-col md:items-end gap-3 min-w-[220px]">
-              <div className="text-left md:text-right">
-                <span className="text-2xl md:text-3xl font-extrabold text-[#FF8D70] block">
-                  150,000원
-                </span>
-                <span className="text-xs text-brand-primary/60 font-medium">
-                  1인 기준 · 3시간 1회
-                </span>
-              </div>
-
-              <Link to="/guide/support" className="w-full md:w-auto">
-                <button className="w-full md:w-auto bg-[#fcf0ec] text-[#e05638] font-bold py-3 px-6 rounded-2xl hover:bg-[#fae2db] transition-colors text-sm cursor-pointer whitespace-nowrap">
-                  상세 세션 안내 보기
-                </button>
-              </Link>
-            </div>
-          </motion.div>
 
           {/* Disclaimer Note */}
           <p className="text-xs text-brand-primary/50 text-center mt-4">

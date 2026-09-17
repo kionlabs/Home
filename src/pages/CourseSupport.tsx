@@ -48,7 +48,7 @@ export default function CourseSupport() {
                 </button>
               </Link>
               <div className="bg-white/10 backdrop-blur-md border border-white/20 px-6 py-4 rounded-2xl text-lg font-extrabold">
-                150,000원 <span className="text-xs font-normal text-white/70">/ 1인 기준 (3시간 1회)</span>
+                150,000원 <span className="text-xs font-normal text-white/70">/ 1인 기준 (2시간 1회)</span>
               </div>
             </div>
           </motion.div>
@@ -83,7 +83,7 @@ export default function CourseSupport() {
                 <CreditCard size={20} />
               </div>
               <span className="text-xs text-brand-primary/50 font-bold block mb-1">비용</span>
-              <p className="font-bold text-sm md:text-base text-brand-primary">150,000원 (3시간 1회)</p>
+              <p className="font-bold text-sm md:text-base text-brand-primary">150,000원 (2시간 1회)</p>
             </div>
 
             <div className="bg-white p-6 rounded-2xl border border-black/5 shadow-sm">
