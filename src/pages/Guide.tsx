@@ -151,11 +151,11 @@ export default function Guide() {
                       468,000원
                     </span>
                     <span className="text-xs text-brand-primary/60 font-medium">
-                      1회차 기준
+                      1세션 (4시간)
                     </span>
                   </div>
                   <span className="text-xs text-brand-primary/50 block">
-                    1:1 전담 구축 코칭 (3~4회차)
+                    단계별 독립 세션 · 필요한 세션만 선택
                   </span>
                 </div>
 
