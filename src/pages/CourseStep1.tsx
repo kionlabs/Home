@@ -38,7 +38,7 @@ export default function CourseStep1() {
               KION AI 툴킷 마스터 — 실전 첫걸음
             </h1>
             <p className="text-base md:text-xl text-white/80 max-w-3xl mb-8 leading-relaxed">
-              설치부터 실무 적용까지, 도구의 제약 없이 나만의 AI 환경을 구축하는 3시간
+              설치부터 실무 적용까지, 도구의 제약 없이 나만의 AI 환경을 구축하는 4시간
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
@@ -48,7 +48,7 @@ export default function CourseStep1() {
                 </button>
               </Link>
               <div className="bg-white/10 backdrop-blur-md border border-white/20 px-6 py-4 rounded-2xl text-lg font-extrabold">
-                198,000원 <span className="text-xs font-normal text-white/70">/ 1회 (3시간) 기준</span>
+                198,000원 <span className="text-xs font-normal text-white/70">/ 1회 (4시간) 기준</span>
               </div>
             </div>
           </motion.div>
@@ -75,7 +75,7 @@ export default function CourseStep1() {
                 <Users size={20} />
               </div>
               <span className="text-xs text-brand-primary/50 font-bold block mb-1">수강 정원</span>
-              <p className="font-bold text-sm md:text-base text-brand-primary">최대 16인 (소규모 밀착형)</p>
+              <p className="font-bold text-sm md:text-base text-brand-primary">최대 12인 (소규모 밀착형)</p>
             </div>
 
             <div className="bg-white p-6 rounded-2xl border border-black/5 shadow-sm">
@@ -91,7 +91,7 @@ export default function CourseStep1() {
                 <CreditCard size={20} />
               </div>
               <span className="text-xs text-brand-primary/50 font-bold block mb-1">수강료</span>
-              <p className="font-bold text-sm md:text-base text-brand-primary">198,000원 (1회 3시간)</p>
+              <p className="font-bold text-sm md:text-base text-brand-primary">198,000원 (1회 4시간)</p>
             </div>
           </div>
         </section>

@@ -65,11 +65,11 @@ export default function Guide() {
                       198,000원
                     </span>
                     <span className="text-xs text-brand-primary/60 font-medium">
-                      1회 (3시간) 기준
+                      1회 (4시간) 기준
                     </span>
                   </div>
                   <span className="text-xs text-brand-primary/50 block">
-                    정원 최대 16인 (소규모 밀착형)
+                    정원 최대 12인 (소규모 밀착형)
                   </span>
                 </div>
 
