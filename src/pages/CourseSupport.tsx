@@ -16,6 +16,14 @@ export default function CourseSupport() {
     }, 100);
   };
 
+  const openPayAppPopup = (url: string) => {
+    const width = 480;
+    const height = 750;
+    const left = Math.max(0, (window.innerWidth - width) / 2 + (window.screenX || window.screenLeft || 0));
+    const top = Math.max(0, (window.innerHeight - height) / 2 + (window.screenY || window.screenTop || 0));
+    window.open(url, 'PayAppPayment', `width=${width},height=${height},left=${left},top=${top},scrollbars=yes,resizable=yes`);
+  };
+
   return (
     <div className="min-h-screen bg-[#f7f5ef] selection:bg-brand-accent/20 selection:text-brand-primary font-sans text-brand-primary">
       <Navbar />
@@ -31,7 +39,7 @@ export default function CourseSupport() {
             <div className="flex items-center gap-2 text-xs md:text-sm text-brand-accent font-medium mb-4">
               <Link to="/guide" className="hover:underline">실전 AI 커리큘럼</Link>
               <span>&gt;</span>
-              <span className="text-white/80">이어서 · 정착 지원</span>
+              <span className="text-white/80">AI 정착 지원</span>
             </div>
 
             <h1 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight leading-tight">
@@ -42,11 +50,12 @@ export default function CourseSupport() {
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
-              <a href="https://www.payapp.kr/L/z4kR7C" target="_blank" rel="noopener noreferrer">
-                <button className="bg-[#e05638] hover:bg-[#d04628] text-white font-bold px-8 py-4 rounded-2xl text-lg shadow-lg transition-all cursor-pointer">
-                  지금 결제 및 세션 신청
-                </button>
-              </a>
+              <button
+                onClick={() => openPayAppPopup('https://www.payapp.kr/L/z4kR7C')}
+                className="bg-[#e05638] hover:bg-[#d04628] text-white font-bold px-8 py-4 rounded-2xl text-lg shadow-lg transition-all cursor-pointer"
+              >
+                지금 결제 및 세션 신청
+              </button>
               <Link to="/#contact" onClick={scrollToContact}>
                 <button className="bg-white/10 hover:bg-white/20 text-white font-bold px-6 py-4 rounded-2xl text-lg border border-white/20 transition-all cursor-pointer">
                   상담 문의하기

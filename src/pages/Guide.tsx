@@ -11,6 +11,14 @@ export default function Guide() {
     }, 100);
   };
 
+  const openPayAppPopup = (url: string) => {
+    const width = 480;
+    const height = 750;
+    const left = Math.max(0, (window.innerWidth - width) / 2 + (window.screenX || window.screenLeft || 0));
+    const top = Math.max(0, (window.innerHeight - height) / 2 + (window.screenY || window.screenTop || 0));
+    window.open(url, 'PayAppPayment', `width=${width},height=${height},left=${left},top=${top},scrollbars=yes,resizable=yes`);
+  };
+
   return (
     <div className="min-h-screen bg-[#f7f5ef] selection:bg-brand-accent/20 selection:text-brand-primary">
       <Navbar />
@@ -74,14 +82,12 @@ export default function Guide() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-2">
-                  <a
-                    href="https://www.payapp.kr/L/z4kR42"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-[#e05638] hover:bg-[#d04628] text-white font-bold py-3.5 px-3 rounded-2xl text-center text-sm transition-colors cursor-pointer block"
+                  <button
+                    onClick={() => openPayAppPopup('https://www.payapp.kr/L/z4kR42')}
+                    className="bg-[#e05638] hover:bg-[#d04628] text-white font-bold py-3.5 px-3 rounded-2xl text-center text-sm transition-colors cursor-pointer w-full"
                   >
                     수강 결제하기
-                  </a>
+                  </button>
                   <Link to="/courses/step1">
                     <button className="w-full bg-[#fcf0ec] text-[#e05638] font-bold py-3.5 px-3 rounded-2xl hover:bg-[#fae2db] transition-colors text-center text-sm cursor-pointer whitespace-nowrap">
                       상세 보기
@@ -127,14 +133,12 @@ export default function Guide() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-2">
-                  <a
-                    href="https://www.payapp.kr/L/z4kR5C"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-[#e05638] hover:bg-[#d04628] text-white font-bold py-3.5 px-3 rounded-2xl text-center text-sm transition-colors cursor-pointer block"
+                  <button
+                    onClick={() => openPayAppPopup('https://www.payapp.kr/L/z4kR5C')}
+                    className="bg-[#e05638] hover:bg-[#d04628] text-white font-bold py-3.5 px-3 rounded-2xl text-center text-sm transition-colors cursor-pointer w-full"
                   >
                     수강 결제하기
-                  </a>
+                  </button>
                   <Link to="/guide/automation">
                     <button className="w-full bg-[#fcf0ec] text-[#e05638] font-bold py-3.5 px-3 rounded-2xl hover:bg-[#fae2db] transition-colors text-center text-sm cursor-pointer whitespace-nowrap">
                       상세 보기
@@ -168,7 +172,7 @@ export default function Guide() {
                 <div className="mb-4">
                   <div className="flex items-baseline gap-2 mb-1">
                     <span className="text-2xl md:text-3xl font-extrabold text-[#FF8D70]">
-                      468,000원
+                      478,000원
                     </span>
                     <span className="text-xs text-brand-primary/60 font-medium">
                       1세션 (4시간)
@@ -180,14 +184,12 @@ export default function Guide() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-2">
-                  <a
-                    href="https://www.payapp.kr/L/z4kR63"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-[#e05638] hover:bg-[#d04628] text-white font-bold py-3.5 px-3 rounded-2xl text-center text-sm transition-colors cursor-pointer block"
+                  <button
+                    onClick={() => openPayAppPopup('https://www.payapp.kr/L/z4kR63')}
+                    className="bg-[#e05638] hover:bg-[#d04628] text-white font-bold py-3.5 px-3 rounded-2xl text-center text-sm transition-colors cursor-pointer w-full"
                   >
                     수강 결제하기
-                  </a>
+                  </button>
                   <Link to="/guide/mvp">
                     <button className="w-full bg-[#fcf0ec] text-[#e05638] font-bold py-3.5 px-3 rounded-2xl hover:bg-[#fae2db] transition-colors text-center text-sm cursor-pointer whitespace-nowrap">
                       상세 보기
@@ -233,14 +235,12 @@ export default function Guide() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-2">
-                  <a
-                    href="https://www.payapp.kr/L/z4kR7C"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-[#e05638] hover:bg-[#d04628] text-white font-bold py-3.5 px-3 rounded-2xl text-center text-sm transition-colors cursor-pointer block"
+                  <button
+                    onClick={() => openPayAppPopup('https://www.payapp.kr/L/z4kR7C')}
+                    className="bg-[#e05638] hover:bg-[#d04628] text-white font-bold py-3.5 px-3 rounded-2xl text-center text-sm transition-colors cursor-pointer w-full"
                   >
                     수강 결제하기
-                  </a>
+                  </button>
                   <Link to="/guide/support">
                     <button className="w-full bg-[#fcf0ec] text-[#e05638] font-bold py-3.5 px-3 rounded-2xl hover:bg-[#fae2db] transition-colors text-center text-sm cursor-pointer whitespace-nowrap">
                       상세 보기
