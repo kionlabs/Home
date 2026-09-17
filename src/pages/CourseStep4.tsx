@@ -52,7 +52,7 @@ export default function CourseStep4() {
                 </button>
               </Link>
               <div className="bg-white/10 backdrop-blur-md border border-white/20 px-6 py-4 rounded-2xl text-lg font-extrabold">
-                2,500,000원부터 <span className="text-xs font-normal text-white/70">/ 전과정 (총 10시간 + 1개월 케어)</span>
+                490,000원부터 <span className="text-xs font-normal text-white/70">/ 회차별 (분할 결제 지원)</span>
               </div>
             </div>
           </motion.div>
@@ -140,7 +140,7 @@ export default function CourseStep4() {
                 <CreditCard size={20} />
               </div>
               <span className="text-xs text-brand-primary/50 font-bold block mb-1">수강료</span>
-              <p className="font-bold text-sm md:text-base text-brand-primary">2,500,000원부터 (전과정)</p>
+              <p className="font-bold text-sm md:text-base text-brand-primary">490,000원부터 (회차/모듈당)</p>
             </div>
           </div>
         </section>
