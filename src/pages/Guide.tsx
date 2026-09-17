@@ -73,11 +73,21 @@ export default function Guide() {
                   </span>
                 </div>
 
-                <Link to="/courses/step1">
-                  <button className="w-full bg-[#fcf0ec] text-[#e05638] font-bold py-3.5 px-6 rounded-2xl hover:bg-[#fae2db] transition-colors text-center text-sm cursor-pointer">
-                    상세 커리큘럼 보기
-                  </button>
-                </Link>
+                <div className="grid grid-cols-2 gap-2">
+                  <a
+                    href="https://www.payapp.kr/L/z4kR42"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-[#e05638] hover:bg-[#d04628] text-white font-bold py-3.5 px-3 rounded-2xl text-center text-sm transition-colors cursor-pointer block"
+                  >
+                    수강 결제하기
+                  </a>
+                  <Link to="/courses/step1">
+                    <button className="w-full bg-[#fcf0ec] text-[#e05638] font-bold py-3.5 px-3 rounded-2xl hover:bg-[#fae2db] transition-colors text-center text-sm cursor-pointer whitespace-nowrap">
+                      상세 보기
+                    </button>
+                  </Link>
+                </div>
               </div>
             </motion.div>
 
@@ -116,11 +126,21 @@ export default function Guide() {
                   </span>
                 </div>
 
-                <Link to="/guide/automation">
-                  <button className="w-full bg-[#fcf0ec] text-[#e05638] font-bold py-3.5 px-6 rounded-2xl hover:bg-[#fae2db] transition-colors text-center text-sm cursor-pointer">
-                    상세 커리큘럼 보기
-                  </button>
-                </Link>
+                <div className="grid grid-cols-2 gap-2">
+                  <a
+                    href="https://www.payapp.kr/L/z4kR5C"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-[#e05638] hover:bg-[#d04628] text-white font-bold py-3.5 px-3 rounded-2xl text-center text-sm transition-colors cursor-pointer block"
+                  >
+                    수강 결제하기
+                  </a>
+                  <Link to="/guide/automation">
+                    <button className="w-full bg-[#fcf0ec] text-[#e05638] font-bold py-3.5 px-3 rounded-2xl hover:bg-[#fae2db] transition-colors text-center text-sm cursor-pointer whitespace-nowrap">
+                      상세 보기
+                    </button>
+                  </Link>
+                </div>
               </div>
             </motion.div>
 
@@ -159,11 +179,21 @@ export default function Guide() {
                   </span>
                 </div>
 
-                <Link to="/guide/mvp">
-                  <button className="w-full bg-[#fcf0ec] text-[#e05638] font-bold py-3.5 px-6 rounded-2xl hover:bg-[#fae2db] transition-colors text-center text-sm cursor-pointer">
-                    상세 커리큘럼 보기
-                  </button>
-                </Link>
+                <div className="grid grid-cols-2 gap-2">
+                  <a
+                    href="https://www.payapp.kr/L/z4kR63"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-[#e05638] hover:bg-[#d04628] text-white font-bold py-3.5 px-3 rounded-2xl text-center text-sm transition-colors cursor-pointer block"
+                  >
+                    수강 결제하기
+                  </a>
+                  <Link to="/guide/mvp">
+                    <button className="w-full bg-[#fcf0ec] text-[#e05638] font-bold py-3.5 px-3 rounded-2xl hover:bg-[#fae2db] transition-colors text-center text-sm cursor-pointer whitespace-nowrap">
+                      상세 보기
+                    </button>
+                  </Link>
+                </div>
               </div>
             </motion.div>
 
@@ -202,11 +232,21 @@ export default function Guide() {
                   </span>
                 </div>
 
-                <Link to="/guide/support">
-                  <button className="w-full bg-[#fcf0ec] text-[#e05638] font-bold py-3.5 px-6 rounded-2xl hover:bg-[#fae2db] transition-colors text-center text-sm cursor-pointer">
-                    상세 세션 안내 보기
-                  </button>
-                </Link>
+                <div className="grid grid-cols-2 gap-2">
+                  <a
+                    href="https://www.payapp.kr/L/z4kR7C"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-[#e05638] hover:bg-[#d04628] text-white font-bold py-3.5 px-3 rounded-2xl text-center text-sm transition-colors cursor-pointer block"
+                  >
+                    수강 결제하기
+                  </a>
+                  <Link to="/guide/support">
+                    <button className="w-full bg-[#fcf0ec] text-[#e05638] font-bold py-3.5 px-3 rounded-2xl hover:bg-[#fae2db] transition-colors text-center text-sm cursor-pointer whitespace-nowrap">
+                      상세 보기
+                    </button>
+                  </Link>
+                </div>
               </div>
             </motion.div>
           </div>

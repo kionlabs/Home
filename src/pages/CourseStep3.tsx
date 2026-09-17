@@ -42,9 +42,14 @@ export default function CourseStep3() {
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
-              <Link to="/#contact" onClick={scrollToContact}>
+              <a href="https://www.payapp.kr/L/z4kR63" target="_blank" rel="noopener noreferrer">
                 <button className="bg-[#e05638] hover:bg-[#d04628] text-white font-bold px-8 py-4 rounded-2xl text-lg shadow-lg transition-all cursor-pointer">
-                  상담 및 수강 신청하기
+                  지금 결제 및 세션 신청
+                </button>
+              </a>
+              <Link to="/#contact" onClick={scrollToContact}>
+                <button className="bg-white/10 hover:bg-white/20 text-white font-bold px-6 py-4 rounded-2xl text-lg border border-white/20 transition-all cursor-pointer">
+                  상담 문의하기
                 </button>
               </Link>
               <div className="bg-white/10 backdrop-blur-md border border-white/20 px-6 py-4 rounded-2xl text-lg font-extrabold">
