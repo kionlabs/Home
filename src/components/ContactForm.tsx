@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { supabase } from '../lib/supabase';
-import { createNotionPage } from '../lib/notion';
 
 export default function ContactForm() {
   // Helper to sanitize contact input (allow digits and hyphens)
@@ -70,6 +69,7 @@ export default function ContactForm() {
       if (error) throw error;
       // Notion integration
       try {
+        const { createNotionPage } = await import('../lib/notion');
         await createNotionPage({
           name: formData.name,
           contact: cleanedContact,

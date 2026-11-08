@@ -67,6 +67,7 @@ export default function Footer() {
             <ul className="space-y-4 text-white/60 text-sm">
               <li><Link to="/" className="hover:text-white transition-colors cursor-pointer">KION Labs 소개</Link></li>
               <li><Link to="/guide" className="hover:text-white transition-colors cursor-pointer">서비스 가이드</Link></li>
+              <li><Link to="/portfolio" className="hover:text-white transition-colors cursor-pointer">포트폴리오</Link></li>
               <li><Link to="/#contact" className="hover:text-white transition-colors cursor-pointer">파트너십</Link></li>
             </ul>
           </div>

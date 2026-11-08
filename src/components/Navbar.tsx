@@ -13,8 +13,8 @@ const menuItems = [
     items: ["학교/기관 출강", "1:1 맞춤 클래스", "공모전/창업 빌드업"]
   },
   {
-    title: "성공 사례",
-    link: "#"
+    title: "포트폴리오",
+    link: "/portfolio"
   },
   {
     title: "KION Labs",
@@ -57,15 +57,17 @@ export default function Navbar() {
                 onMouseEnter={() => setActiveDropdown(menu.title)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <button className="flex items-center gap-1 cursor-pointer font-medium hover:text-brand-accent transition-colors">
-                  {menu.title}
-                  {menu.items && (
+                {menu.items ? (
+                  <button className="flex items-center gap-1 cursor-pointer font-medium hover:text-brand-accent transition-colors">
+                    {menu.title}
                     <ChevronDown
                       size={14}
                       className={`transition-transform duration-300 ${activeDropdown === menu.title ? "rotate-180" : ""}`}
                     />
-                  )}
-                </button>
+                  </button>
+                ) : (
+                  <Link to={menu.link} className="font-medium hover:text-brand-accent transition-colors">{menu.title}</Link>
+                )}
 
                 <AnimatePresence>
                   {menu.items && activeDropdown === menu.title && (
@@ -146,8 +148,8 @@ export default function Navbar() {
                     </div>
                   ) : (
                     <Link 
-                      to="/#contact" 
-                      onClick={() => { setIsMobileMenuOpen(false); scrollToContact(); }}
+                      to={menu.link}
+                      onClick={() => setIsMobileMenuOpen(false)}
                       className="block text-lg font-bold text-brand-primary hover:text-brand-accent cursor-pointer"
                     >
                       {menu.title}
