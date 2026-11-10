@@ -1,5 +1,18 @@
 {
   "rewrites": [
+    { "source": "/guide", "destination": "/guide.html" },
+    { "source": "/portfolio", "destination": "/portfolio.html" },
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/terms", "destination": "/terms.html" },
+    { "source": "/courses/step1", "destination": "/courses/step1.html" },
+    { "source": "/courses/step2", "destination": "/courses/step2.html" },
+    { "source": "/courses/step3", "destination": "/courses/step3.html" },
+    { "source": "/courses/step4", "destination": "/courses/step4.html" },
+    { "source": "/courses/support", "destination": "/courses/support.html" },
+    { "source": "/guide/automation", "destination": "/guide/automation.html" },
+    { "source": "/guide/mvp", "destination": "/guide/mvp.html" },
+    { "source": "/guide/fullpackage", "destination": "/guide/fullpackage.html" },
+    { "source": "/guide/support", "destination": "/guide/support.html" },
     {
       "source": "/(.*)",
       "destination": "/index.html"

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kionlabs.vercel.app/sitemap.xml

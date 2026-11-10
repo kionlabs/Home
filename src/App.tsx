@@ -14,6 +14,23 @@ import CourseStep3 from './pages/CourseStep3';
 import CourseStep4 from './pages/CourseStep4';
 import CourseSupport from './pages/CourseSupport';
 import Portfolio from './pages/Portfolio';
+import { getSeo } from './seo';
+
+function PageSeo() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const seo = getSeo(pathname);
+    document.title = seo.title;
+    document.querySelector('meta[name="description"]')?.setAttribute('content', seo.description);
+    document.querySelector('meta[property="og:title"]')?.setAttribute('content', seo.title);
+    document.querySelector('meta[property="og:description"]')?.setAttribute('content', seo.description);
+    document.querySelector('meta[property="og:url"]')?.setAttribute('content', seo.url);
+    document.querySelector('link[rel="canonical"]')?.setAttribute('href', seo.url);
+  }, [pathname]);
+
+  return null;
+}
 
 // ScrollToHash component to handle scrolling when navigating with a hash
 function ScrollToHash() {
@@ -35,9 +52,10 @@ function ScrollToHash() {
   return null;
 }
 
-export default function App() {
+export function SiteRoutes() {
   return (
-    <BrowserRouter>
+    <>
+      <PageSeo />
       <ScrollToHash />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -55,6 +73,14 @@ export default function App() {
         <Route path="/courses/support" element={<CourseSupport />} />
         <Route path="/guide/support" element={<CourseSupport />} />
       </Routes>
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <SiteRoutes />
     </BrowserRouter>
   );
 }
