@@ -3,7 +3,7 @@ import { ArrowLeft, ArrowUpRight, BookOpen, CalendarDays, Download, FileText, Li
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { supabase } from '../lib/supabase';
-import { formatClassDate, loadPosts, postCategories, type ClassPost } from '../lib/classroom';
+import { formatClassDate, loadPosts, postCategories, type ClassPost, type PostFile } from '../lib/classroom';
 
 export default function Classroom() {
   const [posts, setPosts] = useState<ClassPost[]>([]);
@@ -13,6 +13,8 @@ export default function Classroom() {
   const [search, setSearch] = useState('');
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [fileUrls, setFileUrls] = useState<Record<string, string>>({});
+  const [downloadingId, setDownloadingId] = useState<string | null>(null);
+  const [downloadError, setDownloadError] = useState('');
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
@@ -43,7 +45,7 @@ export default function Classroom() {
     let active = true;
     setFileUrls({});
     if (!selected) return;
-    Promise.all(selected.class_post_files.map(async (file) => {
+    Promise.all(selected.class_post_files.filter((file) => file.content_type.startsWith('image/')).map(async (file) => {
       const { data } = await supabase.storage.from('class-materials').createSignedUrl(file.storage_path, 3600);
       return [file.id, data?.signedUrl ?? ''] as const;
     })).then((entries) => { if (active) setFileUrls(Object.fromEntries(entries)); });
@@ -57,6 +59,7 @@ export default function Classroom() {
     window.history.pushState({}, '', url);
     setSelectedId(id);
     setCopied(false);
+    setDownloadError('');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
@@ -66,6 +69,23 @@ export default function Classroom() {
       setCopied(true);
     } catch {
       setCopied(false);
+    }
+  }
+
+  async function downloadFile(file: PostFile) {
+    if (downloadingId) return;
+    setDownloadingId(file.id);
+    setDownloadError('');
+    try {
+      const { data, error } = await supabase.storage
+        .from('class-materials')
+        .createSignedUrl(file.storage_path, 60, { download: file.filename });
+      if (error || !data?.signedUrl) throw error ?? new Error('다운로드 주소를 만들지 못했습니다.');
+      window.location.assign(data.signedUrl);
+    } catch {
+      setDownloadError('파일을 다운로드하지 못했습니다. 잠시 후 다시 시도해 주세요.');
+    } finally {
+      setDownloadingId(null);
     }
   }
 
@@ -94,12 +114,13 @@ export default function Classroom() {
                   <h2 className="text-xl font-bold mb-5">첨부 자료</h2>
                   <div className="grid gap-3 sm:grid-cols-2">
                     {selected.class_post_files.map((file) => (
-                      <a key={file.id} href={fileUrls[file.id] || undefined} target="_blank" rel="noopener noreferrer" aria-disabled={!fileUrls[file.id]} className={`flex items-center gap-3 p-4 border border-brand-primary/10 rounded-md min-w-0 ${fileUrls[file.id] ? 'hover:border-brand-accent hover:text-brand-accent' : 'opacity-50 pointer-events-none'}`}>
+                      <button key={file.id} type="button" onClick={() => downloadFile(file)} disabled={downloadingId === file.id} className="flex items-center gap-3 p-4 border border-brand-primary/10 rounded-md min-w-0 text-left hover:border-brand-accent hover:text-brand-accent disabled:opacity-50 disabled:cursor-wait cursor-pointer">
                         {file.content_type.startsWith('image/') ? <BookOpen size={20} /> : <FileText size={20} />}
-                        <span className="truncate flex-1 text-sm font-medium">{file.filename}</span><Download size={17} />
-                      </a>
+                        <span className="truncate flex-1 text-sm font-medium">{downloadingId === file.id ? '다운로드 준비 중…' : file.filename}</span><Download size={17} />
+                      </button>
                     ))}
                   </div>
+                  {downloadError && <p role="alert" className="mt-4 text-sm text-red-600">{downloadError}</p>}
                   {selected.class_post_files.filter((file) => file.content_type.startsWith('image/') && fileUrls[file.id]).map((file) => <img key={file.id} src={fileUrls[file.id]} alt={`${selected.title} 수업 사진`} className="mt-6 w-full max-h-[600px] object-contain rounded-md bg-brand-bg-soft" />)}
                 </section>
               )}
