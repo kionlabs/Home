@@ -79,9 +79,18 @@ export default function Classroom() {
     try {
       const { data, error } = await supabase.storage
         .from('class-materials')
-        .createSignedUrl(file.storage_path, 60, { download: file.filename });
+        .createSignedUrl(file.storage_path, 60);
       if (error || !data?.signedUrl) throw error ?? new Error('다운로드 주소를 만들지 못했습니다.');
-      window.location.assign(data.signedUrl);
+      const response = await fetch(data.signedUrl);
+      if (!response.ok) throw new Error('파일을 가져오지 못했습니다.');
+      const blobUrl = URL.createObjectURL(await response.blob());
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = file.filename;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(blobUrl), 10_000);
     } catch {
       setDownloadError('파일을 다운로드하지 못했습니다. 잠시 후 다시 시도해 주세요.');
     } finally {
@@ -114,7 +123,7 @@ export default function Classroom() {
                   <h2 className="text-xl font-bold mb-5">첨부 자료</h2>
                   <div className="grid gap-3 sm:grid-cols-2">
                     {selected.class_post_files.map((file) => (
-                      <button key={file.id} type="button" onClick={() => downloadFile(file)} disabled={downloadingId === file.id} className="flex items-center gap-3 p-4 border border-brand-primary/10 rounded-md min-w-0 text-left hover:border-brand-accent hover:text-brand-accent disabled:opacity-50 disabled:cursor-wait cursor-pointer">
+                      <button key={file.id} type="button" onClick={() => downloadFile(file)} disabled={downloadingId !== null} className="flex items-center gap-3 p-4 border border-brand-primary/10 rounded-md min-w-0 text-left hover:border-brand-accent hover:text-brand-accent disabled:opacity-50 disabled:cursor-wait cursor-pointer">
                         {file.content_type.startsWith('image/') ? <BookOpen size={20} /> : <FileText size={20} />}
                         <span className="truncate flex-1 text-sm font-medium">{downloadingId === file.id ? '다운로드 준비 중…' : file.filename}</span><Download size={17} />
                       </button>
