@@ -17,6 +17,10 @@ const menuItems = [
     link: "/portfolio"
   },
   {
+    title: "수업 자료",
+    link: "/classroom"
+  },
+  {
     title: "KION Labs",
     link: "/#contact"
   }

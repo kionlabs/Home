@@ -2,6 +2,8 @@
   "rewrites": [
     { "source": "/guide", "destination": "/guide.html" },
     { "source": "/portfolio", "destination": "/portfolio.html" },
+    { "source": "/classroom", "destination": "/classroom.html" },
+    { "source": "/admin", "destination": "/admin.html" },
     { "source": "/privacy", "destination": "/privacy.html" },
     { "source": "/terms", "destination": "/terms.html" },
     { "source": "/courses/step1", "destination": "/courses/step1.html" },

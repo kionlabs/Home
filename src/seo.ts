@@ -13,6 +13,10 @@ const pages: Record<string, { title: string; description: string; canonicalPath?
     title: '교육 및 웹앱 구축 포트폴리오 | KION Labs',
     description: 'KION Labs의 AI 교육 플랫폼, 업무 솔루션, 웹앱 구축 프로젝트와 진행 중인 고객 의뢰 사례를 소개합니다.',
   },
+  '/classroom': {
+    title: '수업 자료실과 출강 기록 | KION Labs',
+    description: 'KION Labs의 출강 기록, 수업 자료와 실습 안내를 한곳에서 확인하세요.',
+  },
   '/courses/step1': {
     title: 'KION AI 툴킷 마스터 | KION Labs',
     description: 'AI 도구 설치부터 실무 적용까지 직접 경험하는 4시간 실전 입문 과정입니다.',
@@ -51,11 +55,13 @@ const aliases: Record<string, string> = {
 };
 
 export const indexablePaths = Object.keys(pages);
-export const prerenderPaths = [...indexablePaths, ...Object.keys(aliases)];
+export const prerenderPaths = [...indexablePaths, ...Object.keys(aliases), '/admin'];
 
 export function getSeo(pathname: string) {
   const canonicalPath = aliases[pathname] ?? pathname;
-  const page = pages[canonicalPath] ?? pages['/'];
+  const page = pathname === '/admin'
+    ? { title: '관리자 | KION Labs', description: 'KION Labs 관리자 로그인' }
+    : pages[canonicalPath] ?? pages['/'];
   return {
     title: page.title,
     description: page.description,

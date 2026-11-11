@@ -14,6 +14,8 @@ import CourseStep3 from './pages/CourseStep3';
 import CourseStep4 from './pages/CourseStep4';
 import CourseSupport from './pages/CourseSupport';
 import Portfolio from './pages/Portfolio';
+import Classroom from './pages/Classroom';
+import Admin from './pages/Admin';
 import { getSeo } from './seo';
 
 function PageSeo() {
@@ -27,6 +29,17 @@ function PageSeo() {
     document.querySelector('meta[property="og:description"]')?.setAttribute('content', seo.description);
     document.querySelector('meta[property="og:url"]')?.setAttribute('content', seo.url);
     document.querySelector('link[rel="canonical"]')?.setAttribute('href', seo.url);
+    let robots = document.querySelector('meta[name="robots"]');
+    if (pathname === '/admin') {
+      if (!robots) {
+        robots = document.createElement('meta');
+        robots.setAttribute('name', 'robots');
+        document.head.appendChild(robots);
+      }
+      robots.setAttribute('content', 'noindex, nofollow');
+    } else {
+      robots?.remove();
+    }
   }, [pathname]);
 
   return null;
@@ -61,6 +74,8 @@ export function SiteRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/guide" element={<Guide />} />
         <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/classroom" element={<Classroom />} />
+        <Route path="/admin" element={<Admin />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/courses/step1" element={<CourseStep1 />} />

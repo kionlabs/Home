@@ -41,6 +41,7 @@ try {
     html = replaceRequired(html, /<meta property="og:url" content="[^"]*"\s*\/>/, `<meta property="og:url" content="${seo.url}" />`);
     html = replaceRequired(html, /<meta property="og:title" content="[^"]*"\s*\/>/, `<meta property="og:title" content="${seo.title}" />`);
     html = replaceRequired(html, /<meta property="og:description" content="[^"]*"\s*\/>/, `<meta property="og:description" content="${seo.description}" />`);
+    if (pathname === '/admin') html = html.replace('</head>', '    <meta name="robots" content="noindex, nofollow" />\n  </head>');
     html = replaceRequired(html, /<div id="root"><\/div>/, `<div id="root">${content}</div>`);
 
     const filename = pathname === '/' ? 'index.html' : `${pathname.slice(1)}.html`;
