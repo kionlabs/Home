@@ -13,6 +13,7 @@ type Project = {
   stack: string[];
   status?: string;
   url?: string;
+  blogUrl?: string;
   thumbnail?: string;
   featured?: boolean;
 };
@@ -20,31 +21,33 @@ type Project = {
 const projects: Project[] = [
   {
     name: '인그리드', category: '교육', featured: true, status: '실제 학교 운영',
-    summary: '학교 현장에서 운영 중인 AI 기반 논술형 평가 플랫폼',
-    details: '현직 중학교 교사와 협업하며 학생 답안 분석, 평가와 피드백 기능을 수업 현장에 맞춰 계속 개선하고 있습니다.',
-    stack: ['학교 현장', 'AI 평가', '교육 데이터'],
+    summary: '현직 교사와 함께 학교 현장에서 운영하는 평가·학습 기록 플랫폼',
+    details: '논술형 평가와 학교 활동의 생성부터 학생 답안 제출, 교사 피드백, 수업 노트와 출결 신고까지 연결합니다. 학생은 웹과 Android 앱으로 참여하며 실제 수업에 맞춰 기능을 지속 개선하고 있습니다.',
+    stack: ['Django', 'MySQL', 'Android', 'AI 보조'],
     url: 'https://schoolingrid.com/', thumbnail: '/assets/portfolio/ingrid.jpg',
   },
   {
-    name: 'MeetPick', category: '업무 솔루션', featured: true, status: '개발 중',
-    summary: '면접 일정부터 영업·학교·강사 관리까지 연결한 운영 플랫폼',
-    details: '주 1회 협업 수업으로 개발하며 면접 예약과 영업, 학교, 강사 관리 기능을 구현했습니다.',
-    stack: ['Next.js', '면접 일정', '운영 관리'],
+    name: 'Interview Scheduler', category: '업무 솔루션', featured: true, status: '협업 개발 중',
+    summary: '면접 예약부터 영업·학교 배정·강사 운영까지 연결한 교육사업 관리 플랫폼',
+    details: '지원자 예약과 관리자별 면접 일정, 기관 영업 활동, 학교 배정, 강사별 현황을 하나의 업무 흐름으로 연결합니다. Google Calendar 연동과 Android 명함 OCR도 지원합니다.',
+    stack: ['Next.js', 'Supabase', 'Google Calendar', 'Android OCR'],
     url: 'https://interview-scheduler26.vercel.app/', thumbnail: '/assets/portfolio/meetpick.jpg',
   },
   {
     name: '잇다과외', category: '교육', featured: true, status: '고객 프로젝트 · 진행 중',
-    summary: '학교별 학습 안내와 상담을 연결하는 맞춤 과외 홈페이지',
-    details: '온라인 과외 정보와 시범수업 신청 기능을 구축했고, 블로그 콘텐츠 연동을 진행하고 있습니다.',
-    stack: ['Next.js', '상담 관리', '콘텐츠 연동'],
+    summary: '맞춤 과외 홈페이지 제작과 네이버 블로그 운영',
+    details: '학교별 학습 안내와 시범수업 신청 기능을 구축하고, 네이버 블로그 운영을 대행하며 홈페이지와 콘텐츠 연동을 진행하고 있습니다.',
+    stack: ['Next.js', '상담 관리', '블로그 운영'],
     url: 'https://itda-edu.vercel.app/', thumbnail: '/assets/portfolio/itda.jpg',
+    blogUrl: 'https://blog.naver.com/itda-edu',
   },
   {
     name: 'DawaHub', category: '업무 솔루션', featured: true, status: '고객 프로젝트 · 진행 중',
-    summary: '골동품 매입과 유품정리·특수청소 서비스를 위한 홈페이지',
-    details: '서비스 안내, 견적 상담, 작업 사례와 후기 관리 화면을 구축했고 블로그 연동을 진행하고 있습니다.',
-    stack: ['웹사이트', '견적 상담', '콘텐츠 연동'],
+    summary: '지역 서비스 홈페이지 제작과 네이버 블로그 운영',
+    details: '골동품 매입·유품정리·특수청소 안내와 견적 상담 화면을 구축하고, 네이버 블로그 운영을 대행하며 콘텐츠 연동을 진행하고 있습니다.',
+    stack: ['웹사이트', '견적 상담', '블로그 운영'],
     url: 'https://dawahub.vercel.app/', thumbnail: '/assets/portfolio/dawahub.jpg',
+    blogUrl: 'https://blog.naver.com/dawa_specialclean',
   },
   {
     name: '유통 업무 ERP', category: '업무 솔루션', featured: true, status: '고객 프로젝트 · 진행 중',
@@ -117,7 +120,10 @@ function ProjectCard({ project }: { project: Project }) {
         <div className="mt-6 flex flex-wrap gap-x-3 gap-y-1 border-t border-brand-primary/10 pt-4">
           {project.stack.map((item) => <span key={item} className="text-xs text-brand-primary/55">#{item}</span>)}
         </div>
-        {project.url && <a href={project.url} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-1 self-start text-sm font-bold text-brand-accent hover:underline">실제 사이트 보기 <ArrowUpRight size={16} /></a>}
+        {(project.url || project.blogUrl) && <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
+          {project.url && <a href={project.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm font-bold text-brand-accent hover:underline">실제 사이트 보기 <ArrowUpRight size={16} /></a>}
+          {project.blogUrl && <a href={project.blogUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm font-bold text-brand-primary/70 hover:text-brand-accent hover:underline">운영 블로그 보기 <ArrowUpRight size={16} /></a>}
+        </div>}
       </div>
     </article>
   );
