@@ -1,4 +1,4 @@
-const siteUrl = 'https://kionlabs.vercel.app';
+const siteUrl = (import.meta.env.VITE_SITE_URL || 'https://kionlabs.pages.dev').replace(/\/$/, '');
 
 const pages: Record<string, { title: string; description: string; canonicalPath?: string }> = {
   '/': {

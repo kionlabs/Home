@@ -18,7 +18,7 @@ export default function Privacy() {
               개인정보 처리방침
             </h1>
             <p className="text-brand-primary/60 text-sm">
-              키온랩스 홈페이지(kionlabs.vercel.app) 개인정보 처리방침입니다.
+              키온랩스 홈페이지 개인정보 처리방침입니다.
             </p>
           </header>
 
@@ -32,7 +32,7 @@ export default function Privacy() {
                 키온랩스(이하 "회사")는 「개인정보 보호법」 제30조에 따라 정보주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리방침을 수립·공개합니다.
               </p>
               <p>
-                이 개인정보 처리방침은 회사가 운영하는 키온랩스 홈페이지(kionlabs.vercel.app)(이하 "서비스")에 적용됩니다.
+                이 개인정보 처리방침은 회사가 운영하는 키온랩스 홈페이지(이하 "서비스")에 적용됩니다.
               </p>
             </section>
 

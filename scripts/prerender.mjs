@@ -25,8 +25,9 @@ function replaceRequired(html, pattern, replacement) {
 
 try {
   const { SiteRoutes } = await vite.ssrLoadModule('/src/App.tsx');
-  const { getSeo, prerenderPaths } = await vite.ssrLoadModule('/src/seo.ts');
+  const { getSeo, indexablePaths, prerenderPaths } = await vite.ssrLoadModule('/src/seo.ts');
   const { MemoryRouter } = await vite.ssrLoadModule('react-router-dom');
+  const siteUrl = (process.env.VITE_SITE_URL || 'https://kionlabs.pages.dev').replace(/\/$/, '');
 
   for (const pathname of prerenderPaths) {
     const seo = getSeo(pathname);
@@ -34,7 +35,7 @@ try {
       createElement(MemoryRouter, { initialEntries: [pathname] }, createElement(SiteRoutes)),
     );
 
-    let html = template;
+    let html = template.replaceAll('https://kionlabs.vercel.app', siteUrl);
     html = replaceRequired(html, /<title>[^<]*<\/title>/, `<title>${seo.title}</title>`);
     html = replaceRequired(html, /<meta name="description" content="[^"]*"\s*\/>/, `<meta name="description" content="${seo.description}" />`);
     html = replaceRequired(html, /<link rel="canonical" href="[^"]*"\s*\/>/, `<link rel="canonical" href="${seo.url}" />`);
@@ -49,6 +50,10 @@ try {
     await mkdir(path.dirname(output), { recursive: true });
     await writeFile(output, html);
   }
+
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${indexablePaths.map((pathname) => `  <url><loc>${siteUrl}${pathname}</loc></url>`).join('\n')}\n</urlset>\n`;
+  await writeFile(path.join(dist, 'sitemap.xml'), sitemap);
+  await writeFile(path.join(dist, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}/sitemap.xml\n`);
 } finally {
   await vite.close();
 }
